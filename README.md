@@ -8,4 +8,4 @@
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+[Replicar el juego del dado mentiroso para que sea jugable entre dos personas]
