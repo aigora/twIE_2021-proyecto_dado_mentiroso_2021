@@ -1,6 +1,6 @@
-# [DADO MENTIROSO]
+# DADO MENTIROSO
 
-[Replicar el juego del dado mentiroso para que sea jugable entre dos personas.]
+Replicar el juego del dado mentiroso para que sea jugable entre dos personas.
 
 ## Integrantes del equipo
 
