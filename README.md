@@ -1,6 +1,5 @@
 # DADO MENTIROSO
 
-
 ## Integrantes del equipo
 
  1-Sergio Díaz-Maroto Lara - SergioDiaz-MarotoLara                                                                                                                        
