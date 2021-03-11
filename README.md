@@ -12,7 +12,7 @@ Realizaremos un código con el cual una persona jugará con una IA al juego del 
 
 ## Objetivos del trabajo
 
- 1-Realizar el código con el que se podrá jugar una persona vs una IA a dicho juego.  
+ 1-Realizar el código con el que podrá jugar una persona vs una IA a dicho juego.  
  
  2-Pasar a retocar y decorar de forma más visual el juego, si es posible, una vez haber hecho funcionar el código.
  
