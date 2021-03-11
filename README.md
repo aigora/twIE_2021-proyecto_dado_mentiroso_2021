@@ -1,6 +1,6 @@
 # DADO MENTIROSO
 
-Realizaremos un código con el cual una persona se jugará con una IA al juego del dado mentiroso.
+Realizaremos un código con el cual una persona jugará con una IA al juego del dado mentiroso.
 
 ## Integrantes del equipo
 
