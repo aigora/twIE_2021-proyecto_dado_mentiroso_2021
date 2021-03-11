@@ -1,6 +1,6 @@
 # DADO MENTIROSO
 
-Realizaremos un código con el cual dos personas podrán jugar al juego del dado mentiroso.
+Realizaremos un código con el cual una persona se jugará con una IA al juego del dado mentiroso.
 
 ## Integrantes del equipo
 
@@ -12,8 +12,7 @@ Realizaremos un código con el cual dos personas podrán jugar al juego del dado
 
 ## Objetivos del trabajo
 
- 1-Realizar el código con el que se podrá jugar a dicho juego.  
+ 1-Realizar el código con el que se podrá jugar una persona vs una IA a dicho juego.  
  
- 2-Pasar a retocar y decorar de forma más visual el juego una vez haber hecho funcionar el código.  
+ 2-Pasar a retocar y decorar de forma más visual el juego, si es posible, una vez haber hecho funcionar el código.
  
- 3- Si tenemos tiempo suficiente, tenemos la idea de poder jugar con la IA. -----> (Poco probable su realización)
