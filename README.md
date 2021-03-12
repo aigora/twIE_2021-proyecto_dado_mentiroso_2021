@@ -14,5 +14,7 @@ Realizaremos un código con el cual una persona jugará con una IA al juego del 
 
  1-Realizar el código con el que podrá jugar una persona vs una IA a dicho juego.  
  
- 2-Pasar a retocar y decorar de forma más visual el juego, si es posible, una vez haber hecho funcionar el código.
+ 2-Realizar una especie de "Ranking" almacenando las puntuaciones de los jugadores.
+ 
+ 3-Pasar a retocar y decorar de forma más visual el juego una vez haber hecho funcionar el código. (Esto se realizara si disponemos de tiempo)
  
