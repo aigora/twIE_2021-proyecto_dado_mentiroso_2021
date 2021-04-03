@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#define N 5
+
+int randomizer();
+int main()
+{
+    int i;
+    int primer_jugador[N];
+    int segundo_jugador[N];//Cada jugador tendrá 5 dados.
+
+    //Genera semilla aleatoria
+    srand(time(NULL));
+
+    for(i = 0; i < N; i++)
+        primer_jugador[i] = randomizer();
+
+    for(i = 0; i < N; i++)
+        segundo_jugador[i] = randomizer();
+
+    for(i = 0; i < N; i++)
+        printf("%i   ", primer_jugador[i]);
+
+    printf("\n\n");
+
+    for(i = 0; i < N; i++)
+        printf("%i   ", segundo_jugador[i]);
+
+  return 0;
+}
+int randomizer()
+{
+    //numero aleatorio entre 1 y 6
+    return rand() % 6 + 1;
+}
