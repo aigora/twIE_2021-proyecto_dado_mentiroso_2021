@@ -17,13 +17,13 @@ int main()
        case 'a':
            printf("\nEl juego del dado mentiroso es un juego de apuestas donde cada jugador tiene 5 dados y un cubilete.\n\
 Al comenzar, todos los jugadores agitan los dados dentro del cubilete y lo posan sobre la mesa boca abajo\n\
-para no revelar tus dados a los demás jugadores. Un jugador puede mirar sus dados, pero no los de los demás.\n\
-El juego consiste en apostar una cantidad de dados especifica de un número, es decir, si es un juego de dos personas,\n\
-tu puedes decir que hay cuatro dados con el número tres entre los diez dados totales.\n\
-El juego es en sí, un bucle de apuestas cada vez más grandes hasta llegar a un suceso muy improbable.\n\
+para no revelar tus dados a los demas jugadores. Un jugador puede mirar sus dados, pero no los de los demas.\n\
+El juego consiste en apostar una cantidad de dados especifica de un numero, es decir, si es un juego de dos personas,\n\
+tu puedes decir que hay cuatro dados con el numero tres entre los diez dados totales.\n\
+El juego es en si un bucle de apuestas cada vez mas grandes hasta llegar a un suceso muy improbable.\n\
 Cuando un jugador considere que la apuesta realizada por el jugador anterior es falsa,\n\
-este podrá llamarle mentiroso y se tendrán que revelar los dados de todos los jugadores.\n\
-Si el acusador tuvo razón, gana la partida, pero si se da el caso de que el acusador no tuvo razón al llamarle mentiroso\
+este podra llamarle mentiroso y se tendran que revelar los dados de todos los jugadores.\n\
+Si el acusador tuvo razon, gana la partida, pero si se da el caso de que el acusador no tuvo razon al llamarle mentiroso\
 (porque si hay de verdad dicha cantidad de dados) el acusador pierde.\n\
 \nY eso es todo, mucha suerte!!\n");//Se han añadido mediante un printf simple, posteriormente se añadiran como fichero.
            printf("\n-----| Escriba 'volver' y posteriormente pulse 'enter' para volver al menu anterior |-----\n\n");
