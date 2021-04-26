@@ -31,6 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Código Proyecto.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libfuncion-1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libfuncion-1.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
