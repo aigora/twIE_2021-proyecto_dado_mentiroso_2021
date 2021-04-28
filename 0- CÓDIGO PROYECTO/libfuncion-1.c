@@ -15,7 +15,7 @@ void imprime(int v[], int n)
 {
   int i;
   for(i = 0; i < n; i++)
-    printf("%d   ",v[i]);
+    printf("%d\t",v[i]);
 }
 
 //Función para identificar.

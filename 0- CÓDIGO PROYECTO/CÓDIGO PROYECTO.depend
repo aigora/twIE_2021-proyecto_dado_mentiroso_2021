@@ -1,6 +1,5 @@
 # depslib dependency file v1.0
-1619430624 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\cÛdigo proyecto.c
-	<stdio.h>
+1619626391 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\cÛdigo proyecto.c
 	<time.h>
 	<stdlib.h>
 	<math.h>
@@ -9,7 +8,7 @@
 1619429692 c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.h
 	<stdio.h>
 
-1619430269 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.c
+1619625995 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.c
 	"libfuncion-1.h"
 	<time.h>
 	<stdlib.h>
