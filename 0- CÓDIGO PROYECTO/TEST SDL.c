@@ -1,4 +1,4 @@
-/**<
+
 // Example program:
 // Using SDL2 to create an application window
 
@@ -40,4 +40,4 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
- */
+
