@@ -1,0 +1,10 @@
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/rebuild_cache.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/SDL2-static.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/SDL2main.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/install/local.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/install.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/edit_cache.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/SDL2.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/uninstall.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/list_install_components.dir
+C:/Users/sergi/OneDrive/Escritorio/SDL2-2.0.14/Build/CMakeFiles/install/strip.dir
