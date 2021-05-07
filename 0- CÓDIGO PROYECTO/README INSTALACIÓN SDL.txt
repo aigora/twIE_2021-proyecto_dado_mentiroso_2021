@@ -13,4 +13,8 @@ SEGUIR ESTOS PASOS PARA QUE FUNCIONE TODO CORRECTAMENTE.
 
 6-Esto tardara varios minutos || NO EJECUTEIS NADA SOLO COMPILAR.
 
-7-Y listo, todo "debería" ir bien. (Si hay problema contactar con https://github.com/SrGnar )
+7-Y listo, todo "debería" ir bien. 
+
+8-Hay adjuntado un archivo llamado TEST SDL, para poder usarlo debeis primero comentar todo el codigo de MAIN
+(para que asi no haya varios mains) y descomentar el codigo de TEST SDL. 
+(Si hay cualquier problema con la instalación contactar con https://github.com/SrGnar )

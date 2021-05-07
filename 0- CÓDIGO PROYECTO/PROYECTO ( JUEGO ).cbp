@@ -30,8 +30,18 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="SDL2-2.0.14/include" />
 		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add directory="SDL2-2.0.14/Build" />
+		</Linker>
 		<Unit filename="MAIN.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="TEST SDL.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="libfuncion-1.c">
