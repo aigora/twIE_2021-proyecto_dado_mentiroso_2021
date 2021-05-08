@@ -1,4 +1,4 @@
-/**<
+
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
@@ -33,7 +33,7 @@ Cuando un jugador considere que la apuesta realizada por el jugador anterior es 
 este podra llamarle mentiroso y se tendran que revelar los dados de todos los jugadores.\n\
 Si el acusador tuvo razon, gana la partida, pero si se da el caso de que el acusador no tuvo razon al llamarle mentiroso\
 (porque si hay de verdad dicha cantidad de dados) el acusador pierde.\n\
-\nY eso es todo, mucha suerte!!\n");//Se han añadido mediante un printf simple, posteriormente se añadiran como fichero.
+\nY eso es todo, mucha suerte!!\n");//Se han aÃ±adido mediante un printf simple, posteriormente se aÃ±adiran como fichero.
            printf("\n\n-----| Escriba 'volver' y posteriormente pulse 'enter' para volver al menu anterior |-----\n\n");
            scanf(" %6s", volver);//Una forma un poco "casera" de hacer esperar al programa hasta que la persona pulse "una tecla" (en este caso mediante una palabra).
            break;
@@ -175,4 +175,3 @@ Si el acusador tuvo razon, gana la partida, pero si se da el caso de que el acus
 
     return 0;
 }
-*/
