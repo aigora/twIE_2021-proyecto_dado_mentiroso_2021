@@ -1,2 +1,0 @@
-C:\PROGRA~1\CODEBL~1\MinGW\bin\ar.exe qc libSDL2main.a CMakeFiles/SDL2main.dir/src/main/windows/SDL_windows_main.c.obj
-C:\PROGRA~1\CODEBL~1\MinGW\bin\ranlib.exe libSDL2main.a

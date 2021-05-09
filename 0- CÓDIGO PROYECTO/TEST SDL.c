@@ -1,8 +1,8 @@
-/**<
+
 // Example program:
 // Using SDL2 to create an application window
-
-#include "SDL.h"
+/**<
+#include <SDL2/SDL.h>
 #include <stdio.h>
 
 int main(int argc, char* argv[]) {
@@ -39,5 +39,5 @@ int main(int argc, char* argv[]) {
     SDL_Quit();
     return 0;
 }
-*/
+ */
 
