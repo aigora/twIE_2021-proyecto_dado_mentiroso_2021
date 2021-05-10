@@ -46,6 +46,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="libfuncion-1.h" />
+		<Unit filename="libfuncion-JUEGO.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libfuncion-JUEGO.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
