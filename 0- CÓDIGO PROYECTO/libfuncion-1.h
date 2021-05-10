@@ -1,5 +1,9 @@
 #include<stdio.h>
 
+
+void JUGADORIA(); //Llama al código del juego
+
+
 int randomizer();
 void imprime(int v[], int n);
 int identificador(int conta[], int n, int num_apostado);
