@@ -1,8 +1,9 @@
 
 #include <time.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
-#include "libfuncion-JUEGO.h"
+#include "libfuncion-1.h"
 #define U 0.036 //Umbral
 
 
