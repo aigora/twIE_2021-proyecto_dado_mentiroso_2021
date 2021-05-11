@@ -42,10 +42,16 @@
 		<Unit filename="TEST SDL.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="libelemento gráfico.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="libfuncion-1.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="libfuncion-1.h" />
+		<Unit filename="libfuncion-JUEGO.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
