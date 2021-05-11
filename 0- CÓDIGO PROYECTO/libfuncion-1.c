@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdio.h>
 #define U 0.036 //Umbral
 
 int randomizer() //Con esto consigo los dados de una manera aleatoria

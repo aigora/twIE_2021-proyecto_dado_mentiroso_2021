@@ -1,0 +1,12 @@
+El juego del dado mentiroso es un juego de apuestas donde cada jugador tiene 5 dados y un cubilete.
+Al comenzar, todos los jugadores agitan los dados dentro del cubilete y lo posan sobre la mesa boca abajo
+para no revelar tus dados a los demas jugadores. Un jugador puede mirar sus dados, pero no los de los demas.
+El juego consiste en apostar una cantidad de dados especifica de un numero, es decir, si es un juego de dos personas,
+tu puedes decir que hay cuatro dados con el numero tres entre los diez dados totales.
+El juego es en si un bucle de apuestas cada vez mas grandes hasta llegar a un suceso muy improbable.
+Cuando un jugador considere que la apuesta realizada por el jugador anterior es falsa,
+este podra llamarle mentiroso y se tendran que revelar los dados de todos los jugadores.
+Si el acusador tuvo razon, gana la partida, pero si se da el caso de que el acusador no tuvo razon al llamarle
+mentiroso (porque si hay de verdad dicha cantidad de dados) el acusador pierde.
+
+Y eso es todo, mucha suerte!!
