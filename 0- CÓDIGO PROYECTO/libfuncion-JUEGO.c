@@ -3,11 +3,16 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <SDL2/SDL.h>
 #define U 0.036 //Umbral
+#define altu 700 //Altura de la ventana
+#define anchu 1200 //Anchura de la ventana
+
 
 void JUGADORIA()
 {
-
+    //Variables del funcionamiento del juego
     int i, j;
     int dados_jugador1[5];
     int dados_jugador2[5];
@@ -24,7 +29,56 @@ void JUGADORIA()
     float vector[12];
     int h;
     char letra;
-    int t, aux;
+    int t, aux, loc;
+
+    //Variables relaciones con el ratón/cursor
+        bool running = 1;
+        int rx,ry;
+        Uint32 start;
+
+
+
+
+    //Variables parte gráfica
+    SDL_Window *ventana=NULL;
+    SDL_Surface *dadosjugador[6]={NULL};
+    SDL_Surface *dadosia[6]={NULL};
+    SDL_Surface *fondo=NULL;
+    SDL_Surface *turnobmp=NULL;
+    SDL_Surface *dadosapostar[6]={NULL};
+    SDL_Surface *cantidadelegir[10]={NULL};
+    SDL_Surface *histodadosjug[10]={NULL};
+    SDL_Surface *histodadosia[10]={NULL};
+    SDL_Surface *windowSurface=NULL;
+    SDL_Rect locdado;
+
+
+
+
+    if(SDL_Init(SDL_INIT_EVERYTHING)<0)//Comprobamos que SDL se inicia correctamente
+    {
+        printf("ERROR AL INICIAR LA LIBERIA DE SDL2\n");
+        exit(-1);
+    }
+
+    //Abrimos la ventana que vamos a usar
+    ventana = SDL_CreateWindow("DADO MENTIROSO",
+                               SDL_WINDOWPOS_CENTERED,
+                               SDL_WINDOWPOS_CENTERED,
+                               anchu, altu,
+                               SDL_WINDOW_ALLOW_HIGHDPI);
+
+    windowSurface = SDL_GetWindowSurface(ventana);
+    if(ventana==NULL)//Comprobamos que se abre correctamente la ventana
+    {
+        printf("ERROR AL ABRIR LA VENTANA EMERGENTE\n");
+        exit(-1);
+    }
+
+    SDL_Event windowEvent;
+
+
+
 
     //Genera semilla aleatoria
     srand(time(NULL));
@@ -34,6 +88,13 @@ void JUGADORIA()
 
     for(i = 0; i < 5; i++)
         dados_jugador2[i] = randomizer();
+
+     crearfondo(fondo,windowSurface);//Carga el fondo de la ventana
+     SDL_UpdateWindowSurface(ventana);//Actualiza ventana con el fondo
+
+     tusdados(dadosjugador,windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
+     SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador
+
 
     //imprime(dados_jugador1, 5);
     //printf("\n\n");

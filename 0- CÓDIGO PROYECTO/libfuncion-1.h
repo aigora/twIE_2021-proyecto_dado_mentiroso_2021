@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<SDL2/SDL.h>
 
 //FUNCIONES MENU
 
@@ -15,3 +16,5 @@ float Prop_binomial(float Exito, float Fracaso, int k, int n);
 
 //FUNCIONES ELEMENTO GRAFICO
 
+void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface);
+void tusdados(SDL_Surface *dadosjugador, SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[]);

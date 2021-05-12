@@ -7,7 +7,7 @@
 #define U 0.036 //Umbral
 
 
-int main()
+int main(int argc, char *argv[])
 {
     char opcion,caracter[100],volver[7];
     printf("\n********************|| BIENVENIDO AL JUEGO DEL DADO MENTIROSO ||********************\n");
@@ -73,4 +73,5 @@ int main()
 
     return 0;
 }
+
 
