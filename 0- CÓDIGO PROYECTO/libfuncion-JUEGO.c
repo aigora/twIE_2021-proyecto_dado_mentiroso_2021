@@ -22,16 +22,18 @@ void JUGADORIA()
     int cantidad_de_la_IA_del_dadoapostado; //si yo, usuario, he apostado un 5, la maquina utiliza esta variable para saber cuantos 5 tiene
     float Prop_exito = 1.0/6.0;
     float Prop_fracaso = 5.0/6.0;
-    float Binomial;
+    float Binomial = 0;
     int c, k;
     int n = 5;
     int x = 1;
     float vector[12];
     int h;
-    char letra;
-    int t, aux;
 
-    //Variables relacionadas con el ratÛn/cursor
+    char letra = 'c';
+    int t = 0, aux;
+    int comprabador = 0;
+
+    //Variables relacionadas con el rat√≥n/cursor
         bool running = 1;
         int rx,ry;
         Uint32 start;
@@ -39,7 +41,7 @@ void JUGADORIA()
 
 
 
-    //Variables parte gr·fica
+    //Variables parte gr√°fica
     SDL_Window *ventana=NULL;
     SDL_Surface *dadosjugador[6]={NULL};
     SDL_Surface *dadosia[6]={NULL};
@@ -131,13 +133,16 @@ void JUGADORIA()
     {
         imprime(dados_jugador1, 5);
         printf("\n");
+        Binomial = 0;
+        if( t != 0){
         printf("Escribe una M para llamar mentiroso o C para seguir apostando.\n");
         scanf(" %c", &letra);
-        t = 0;
+        }
         switch(letra)
         {
         case 'C':
         case 'c':
+            t += 1;
             do
             {
                 printf("Escribe la cantidad que apuestas\n");
@@ -179,7 +184,27 @@ void JUGADORIA()
                 printf("\n");
                 imprime(dados_jugador2, 5);
                 printf("\n");
-                t++;
+                for(i = 0; i < n; i++)
+                {
+                    if(num_dado_apostado == dados_jugador1[i])
+                    comprobador++;
+                }
+                for(i = 0; i < n; i++)
+                {
+                    if(num_dado_apostado == dados_jugador2[i])
+                    comprobador++;
+                }
+              //  printf("%i\n", comprobador);
+                if(comprobador < cantidad_apostada)
+                {
+                    printf("Eres un mentiroso!\n");
+                    printf("PERDISTE!\n");
+                }
+                else
+                {
+                    printf("La IA es mentirosa\n");
+                    printf("GANASTE!!!");
+                }
                 aux = 1;
             }
             //imprime(dados_jugador2, 5);
@@ -203,7 +228,7 @@ void JUGADORIA()
                 vector[11] = Prop_binomial(Prop_exito, Prop_fracaso, cantidad_apostada - contador_dados_IA[5] + 1, n);
 
                 // con esto hago que la probabilidad de la apuesta que el usuario a realizado previamente sea cero.
-                //asÌ restrijo al ordenador de utilizar esa apuesta
+                //as√≠ restrijo al ordenador de utilizar esa apuesta
                 switch(num_dado_apostado)
                 {
                 case 1:
@@ -292,7 +317,28 @@ void JUGADORIA()
             printf("\n");
             imprime(dados_jugador2, 5);
             printf("\n");
-            t++;
+            for(i = 0; i < n; i++)
+            {
+                if(num_dado_apostado == dados_jugador1[i])
+                comprobador++;
+            }
+            for(i = 0; i < n; i++)
+            {
+                if(num_dado_apostado == dados_jugador2[i])
+                comprobador++;
+            }
+            //printf("%i\n", comprobador);
+
+            if(comprobador < cantidad_apostada)
+            {
+                printf("Tuviste razon!!\n");
+                printf("GANASTE!!!\n");
+            }
+            else
+            {
+                printf("La IA no es mentirosa...\n");
+                printf("PERDISTE!\n");
+            }
             aux = 1;
             break;
 
