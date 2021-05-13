@@ -29,9 +29,9 @@ void JUGADORIA()
     float vector[12];
     int h;
     char letra;
-    int t, aux, loc;
+    int t, aux;
 
-    //Variables relaciones con el ratón/cursor
+    //Variables relacionadas con el ratón/cursor
         bool running = 1;
         int rx,ry;
         Uint32 start;
@@ -51,6 +51,7 @@ void JUGADORIA()
     SDL_Surface *histodadosia[10]={NULL};
     SDL_Surface *windowSurface=NULL;
     SDL_Rect locdado;
+    SDL_Rect locmesa;
 
 
 
@@ -92,9 +93,8 @@ void JUGADORIA()
      crearfondo(fondo,windowSurface);//Carga el fondo de la ventana
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con el fondo
 
-     tusdados(dadosjugador,windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
+     tusdados(windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador
-
 
     //imprime(dados_jugador1, 5);
     //printf("\n\n");
