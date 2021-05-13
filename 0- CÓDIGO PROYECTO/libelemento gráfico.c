@@ -19,7 +19,7 @@ void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface)
 
 }
 
-void tusdados(SDL_Surface *dadosjugador, SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[])
+void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[])
 {
     int i;
     SDL_Surface *Dado[5]={NULL};
@@ -48,4 +48,17 @@ void tusdados(SDL_Surface *dadosjugador, SDL_Surface *windowSurface, SDL_Rect lo
         locdado.h = Dado[i]->h;
         SDL_BlitSurface(Dado[i],NULL,windowSurface,&locdado);
     }
+
+}
+
+void mesa(SDL_Surface *windowSurface, SDL_Rect locmesa)
+{
+    SDL_Surface *mesa;
+
+    mesa = SDL_LoadBMP("MESA.bmp");
+    locmesa.x = 256;
+    locmesa.y = 0;
+    locmesa.w = mesa->w;
+    locmesa.h = mesa->h;
+    SDL_BlitSurface(mesa,NULL,windowSurface,&locmesa);
 }

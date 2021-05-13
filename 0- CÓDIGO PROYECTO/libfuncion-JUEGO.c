@@ -28,12 +28,12 @@ void JUGADORIA()
     int x = 1;
     float vector[12];
     int h;
+
     char letra = 'c';
     int t = 0, aux;
     int comprabador = 0;
 
-
-    //Variables relaciones con el ratÛn/cursor
+    //Variables relacionadas con el rat√≥n/cursor
         bool running = 1;
         int rx,ry;
         Uint32 start;
@@ -41,7 +41,7 @@ void JUGADORIA()
 
 
 
-    //Variables parte gr·fica
+    //Variables parte gr√°fica
     SDL_Window *ventana=NULL;
     SDL_Surface *dadosjugador[6]={NULL};
     SDL_Surface *dadosia[6]={NULL};
@@ -53,6 +53,7 @@ void JUGADORIA()
     SDL_Surface *histodadosia[10]={NULL};
     SDL_Surface *windowSurface=NULL;
     SDL_Rect locdado;
+    SDL_Rect locmesa;
 
 
 
@@ -94,9 +95,8 @@ void JUGADORIA()
      crearfondo(fondo,windowSurface);//Carga el fondo de la ventana
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con el fondo
 
-     tusdados(dadosjugador,windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
+     tusdados(windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador
-
 
     //imprime(dados_jugador1, 5);
     //printf("\n\n");
@@ -228,7 +228,7 @@ void JUGADORIA()
                 vector[11] = Prop_binomial(Prop_exito, Prop_fracaso, cantidad_apostada - contador_dados_IA[5] + 1, n);
 
                 // con esto hago que la probabilidad de la apuesta que el usuario a realizado previamente sea cero.
-                //asÌ restrijo al ordenador de utilizar esa apuesta
+                //as√≠ restrijo al ordenador de utilizar esa apuesta
                 switch(num_dado_apostado)
                 {
                 case 1:
