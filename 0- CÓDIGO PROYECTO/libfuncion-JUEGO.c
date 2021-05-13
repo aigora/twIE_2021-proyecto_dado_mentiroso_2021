@@ -31,7 +31,7 @@ void JUGADORIA()
 
     char letra = 'c';
     int t = 0, aux;
-    int comprabador = 0;
+    int comprobador = 0;
 
     //Variables relacionadas con el ratón/cursor
         bool running = 1;
