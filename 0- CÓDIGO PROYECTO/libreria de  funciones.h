@@ -1,6 +1,16 @@
 #include<stdio.h>
 #include<SDL2/SDL.h>
 
+//Estructura ranking
+typedef struct {
+
+char APODO[50];
+int turno;
+
+}ranking;
+
+
+
 //FUNCIONES MENU
 
 void JUGADORIA(); //Llama al código del juego
