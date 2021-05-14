@@ -1,4 +1,4 @@
-#include "3.0- libreria de  funciones.h"
+#include "2.0- libreria de  funciones.h"
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
@@ -517,7 +517,7 @@ int JUGADORIA()
 
     }while(aux == 0);
 
-    Sleep(5000);
+    Sleep(3000);
 
     SDL_QUIT;
     SDL_DestroyWindow(ventana);

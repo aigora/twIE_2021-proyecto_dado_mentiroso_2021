@@ -1,4 +1,4 @@
-#include "3.0- libreria de  funciones.h"
+#include "2.0- libreria de  funciones.h"
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
