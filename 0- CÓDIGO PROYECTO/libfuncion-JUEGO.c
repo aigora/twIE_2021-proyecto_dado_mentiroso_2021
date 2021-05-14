@@ -3,11 +3,16 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <SDL2/SDL.h>
 #define U 0.036 //Umbral
+#define altu 700 //Altura de la ventana
+#define anchu 1200 //Anchura de la ventana
+
 
 void JUGADORIA()
 {
-
+    //Variables del funcionamiento del juego
     int i, j;
     int dados_jugador1[5];
     int dados_jugador2[5];
@@ -17,14 +22,66 @@ void JUGADORIA()
     int cantidad_de_la_IA_del_dadoapostado; //si yo, usuario, he apostado un 5, la maquina utiliza esta variable para saber cuantos 5 tiene
     float Prop_exito = 1.0/6.0;
     float Prop_fracaso = 5.0/6.0;
-    float Binomial;
+    float Binomial = 0;
     int c, k;
     int n = 5;
     int x = 1;
     float vector[12];
     int h;
-    char letra;
-    int t, aux;
+
+    char letra = 'c';
+    int t = 0, aux;
+    int comprobador = 0;
+
+    //Variables relacionadas con el ratón/cursor
+        bool running = 1;
+        int rx,ry;
+        Uint32 start;
+
+
+
+
+    //Variables parte gráfica
+    SDL_Window *ventana=NULL;
+    SDL_Surface *dadosjugador[6]={NULL};
+    SDL_Surface *dadosia[6]={NULL};
+    SDL_Surface *fondo=NULL;
+    SDL_Surface *turnobmp=NULL;
+    SDL_Surface *dadosapostar[6]={NULL};
+    SDL_Surface *cantidadelegir[10]={NULL};
+    SDL_Surface *histodadosjug[10]={NULL};
+    SDL_Surface *histodadosia[10]={NULL};
+    SDL_Surface *windowSurface=NULL;
+    SDL_Rect locdado;
+    SDL_Rect locmesa;
+
+
+
+
+    if(SDL_Init(SDL_INIT_EVERYTHING)<0)//Comprobamos que SDL se inicia correctamente
+    {
+        printf("ERROR AL INICIAR LA LIBERIA DE SDL2\n");
+        exit(-1);
+    }
+
+    //Abrimos la ventana que vamos a usar
+    ventana = SDL_CreateWindow("DADO MENTIROSO",
+                               SDL_WINDOWPOS_CENTERED,
+                               SDL_WINDOWPOS_CENTERED,
+                               anchu, altu,
+                               SDL_WINDOW_ALLOW_HIGHDPI);
+
+    windowSurface = SDL_GetWindowSurface(ventana);
+    if(ventana==NULL)//Comprobamos que se abre correctamente la ventana
+    {
+        printf("ERROR AL ABRIR LA VENTANA EMERGENTE\n");
+        exit(-1);
+    }
+
+    SDL_Event windowEvent;
+
+
+
 
     //Genera semilla aleatoria
     srand(time(NULL));
@@ -34,6 +91,12 @@ void JUGADORIA()
 
     for(i = 0; i < 5; i++)
         dados_jugador2[i] = randomizer();
+
+     crearfondo(fondo,windowSurface);//Carga el fondo de la ventana
+     SDL_UpdateWindowSurface(ventana);//Actualiza ventana con el fondo
+
+     tusdados(windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
+     SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador
 
     //imprime(dados_jugador1, 5);
     //printf("\n\n");
@@ -70,13 +133,16 @@ void JUGADORIA()
     {
         imprime(dados_jugador1, 5);
         printf("\n");
+        Binomial = 0;
+        if( t != 0){
         printf("Escribe una M para llamar mentiroso o C para seguir apostando.\n");
         scanf(" %c", &letra);
-        t = 0;
+        }
         switch(letra)
         {
         case 'C':
         case 'c':
+            t += 1;
             do
             {
                 printf("Escribe la cantidad que apuestas\n");
@@ -118,7 +184,27 @@ void JUGADORIA()
                 printf("\n");
                 imprime(dados_jugador2, 5);
                 printf("\n");
-                t++;
+                for(i = 0; i < n; i++)
+                {
+                    if(num_dado_apostado == dados_jugador1[i])
+                    comprobador++;
+                }
+                for(i = 0; i < n; i++)
+                {
+                    if(num_dado_apostado == dados_jugador2[i])
+                    comprobador++;
+                }
+              //  printf("%i\n", comprobador);
+                if(comprobador < cantidad_apostada)
+                {
+                    printf("Eres un mentiroso!\n");
+                    printf("PERDISTE!\n");
+                }
+                else
+                {
+                    printf("La IA es mentirosa\n");
+                    printf("GANASTE!!!");
+                }
                 aux = 1;
             }
             //imprime(dados_jugador2, 5);
@@ -142,7 +228,7 @@ void JUGADORIA()
                 vector[11] = Prop_binomial(Prop_exito, Prop_fracaso, cantidad_apostada - contador_dados_IA[5] + 1, n);
 
                 // con esto hago que la probabilidad de la apuesta que el usuario a realizado previamente sea cero.
-                //as� restrijo al ordenador de utilizar esa apuesta
+                //así restrijo al ordenador de utilizar esa apuesta
                 switch(num_dado_apostado)
                 {
                 case 1:
@@ -231,7 +317,28 @@ void JUGADORIA()
             printf("\n");
             imprime(dados_jugador2, 5);
             printf("\n");
-            t++;
+            for(i = 0; i < n; i++)
+            {
+                if(num_dado_apostado == dados_jugador1[i])
+                comprobador++;
+            }
+            for(i = 0; i < n; i++)
+            {
+                if(num_dado_apostado == dados_jugador2[i])
+                comprobador++;
+            }
+            //printf("%i\n", comprobador);
+
+            if(comprobador < cantidad_apostada)
+            {
+                printf("Tuviste razon!!\n");
+                printf("GANASTE!!!\n");
+            }
+            else
+            {
+                printf("La IA no es mentirosa...\n");
+                printf("PERDISTE!\n");
+            }
             aux = 1;
             break;
 
