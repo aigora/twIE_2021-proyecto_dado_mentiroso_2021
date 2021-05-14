@@ -1,4 +1,4 @@
-#include "libfuncion-1.h"
+#include "libreria de  funciones.h"
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>

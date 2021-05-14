@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1620920179 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libelemento gr·fico.c
+1620989037 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libelemento gr·fico.c
 	<stdio.h>
 	<SDL2/SDL.h>
 	"libfuncion-1.h"
@@ -373,11 +373,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1620920021 c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.h
+1620988619 c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.h
 	<stdio.h>
 	<SDL2/SDL.h>
 
-1620813961 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.c
+1620941413 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-1.c
 	"libfuncion-1.h"
 	<time.h>
 	<stdlib.h>
@@ -394,4 +394,40 @@
 1620813961 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\test sdl.c
 	<SDL2/SDL.h>
 	<stdio.h>
+
+1620988726 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libfuncion-juego.c
+	"libfuncion-1.h"
+	<time.h>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+	<stdbool.h>
+	<SDL2/SDL.h>
+
+1620990362 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\codigo juego.c
+	"libreria de  funciones.h"
+	<time.h>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+	<stdbool.h>
+	<SDL2/SDL.h>
+
+1620988619 c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libreria de  funciones.h
+	<stdio.h>
+	<SDL2/SDL.h>
+
+1620990362 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\libreria de  funciones.c
+	"libreria de  funciones.h"
+	<time.h>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+
+1620990362 source:c:\users\sergi\onedrive\escritorio\github-programacion\proyectos\twie_2021-proyecto_dado_mentiroso_2021\0- c”digo proyecto\menu.c
+	<time.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	"libreria de  funciones.h"
 
