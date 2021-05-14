@@ -23,10 +23,9 @@ void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface)
 
 //Función que muestra los dados del jugador.
 
-void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],SDL_Window *ventana)
+void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],SDL_Window *ventana,SDL_Surface *Dado[5])
 {
     int i;
-    SDL_Surface *Dado[5]={NULL};
 
     for(i=0;i<5;i++)
     {
@@ -228,6 +227,112 @@ void aposmenti(SDL_Surface *windowSurface, SDL_Rect locapostar, SDL_Rect locment
 
 
     SDL_UpdateWindowSurface(ventana);
+}
+
+//Dos funciones que muestran el fondo de victoria o derrota tras termianar el juego.
+
+void victoria(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
+{
+    fondo = SDL_LoadBMP("VICTORIA.bmp");
+
+
+    if(fondo==NULL)
+    {
+        printf("ERROR AL CARGAR EL FONDO DEL JUEGO: %s\n", SDL_GetError());
+        exit(1);
+    }
+
+     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
+     SDL_UpdateWindowSurface(ventana);
+
+}
+
+
+void derrota(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
+{
+    fondo = SDL_LoadBMP("DERROTA.bmp");
+
+
+    if(fondo==NULL)
+    {
+        printf("ERROR AL CARGAR EL FONDO DEL JUEGO: %s\n", SDL_GetError());
+        exit(1);
+    }
+
+     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
+     SDL_UpdateWindowSurface(ventana);
+
+}
+
+
+//Muestra el mensaje cuando la IA te llame mentiroso.
+
+void mentiroso(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana, int h)
+{
+    if(h==0)
+        fondo = SDL_LoadBMP("MENTIROSOIA.bmp");
+    if(h==1)
+        fondo = SDL_LoadBMP("MENTIROSOTU.bmp");
+
+    if(fondo==NULL)
+    {
+        printf("ERROR AL CARGAR EL FONDO DEL JUEGO: %s\n", SDL_GetError());
+        exit(1);
+    }
+
+     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
+     SDL_UpdateWindowSurface(ventana);
+     Sleep(3000);
+
+}
+
+void todosdados(SDL_Surface *windowSurface,int dados_jugador1[],int dados_jugador2[], SDL_Surface *Dado[5], SDL_Surface *Dadoia[5],SDL_Rect locdado,SDL_Rect locdadoia, SDL_Window *ventana)
+{
+    int i;
+
+    for(i=0;i<5;i++)
+    {
+        if(dados_jugador2[i]==1)
+            Dadoia[i]=SDL_LoadBMP("DADO1.bmp");
+        if(dados_jugador2[i]==2)
+            Dadoia[i]=SDL_LoadBMP("DADO2.bmp");
+        if(dados_jugador2[i]==3)
+            Dadoia[i]=SDL_LoadBMP("DADO3.bmp");
+        if(dados_jugador2[i]==4)
+            Dadoia[i]=SDL_LoadBMP("DADO4.bmp");
+        if(dados_jugador2[i]==5)
+            Dadoia[i]=SDL_LoadBMP("DADO5.bmp");
+        if(dados_jugador2[i]==6)
+            Dadoia[i]=SDL_LoadBMP("DADO6.bmp");
+    }
+
+    locdado.y = 400;
+    locdado.x = 200;
+    for(i=0;i<5;i++)
+    {
+        locdado.x += 50;
+        locdado.w = Dado[i]->w;
+        locdado.h = Dado[i]->h;
+        SDL_BlitSurface(Dado[i],NULL,windowSurface,&locdado);
+        Sleep(400);
+        SDL_UpdateWindowSurface(ventana);
+    }
+
+
+    locdadoia.y = 200;
+    locdadoia.x = 300;
+
+    for(i=0;i<5;i++)
+    {
+        locdadoia.x += 50;
+        locdadoia.w = Dadoia[i]->w;
+        locdadoia.h = Dadoia[i]->h;
+        SDL_BlitSurface(Dadoia[i],NULL,windowSurface,&locdadoia);
+        Sleep(400);
+        SDL_UpdateWindowSurface(ventana);
+    }
+
+
 }
 
 
