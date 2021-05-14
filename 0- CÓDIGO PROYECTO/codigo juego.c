@@ -1,4 +1,4 @@
-#include "libfuncion-1.h"
+#include "libreria de  funciones.h"
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
@@ -28,10 +28,9 @@ void JUGADORIA()
     int x = 1;
     float vector[12];
     int h;
-
     char letra = 'c';
-    int t = 0, aux;
-    int comprabador = 0;
+    int t = 0, aux = 0;
+    int comprobador = 0;
 
     //Variables relacionadas con el ratón/cursor
         bool running = 1;
@@ -46,14 +45,19 @@ void JUGADORIA()
     SDL_Surface *dadosjugador[6]={NULL};
     SDL_Surface *dadosia[6]={NULL};
     SDL_Surface *fondo=NULL;
-    SDL_Surface *turnobmp=NULL;
-    SDL_Surface *dadosapostar[6]={NULL};
-    SDL_Surface *cantidadelegir[10]={NULL};
     SDL_Surface *histodadosjug[10]={NULL};
     SDL_Surface *histodadosia[10]={NULL};
     SDL_Surface *windowSurface=NULL;
+
+    //Los SDL_Rect son un tipo de estructura de SDL la cual define la posición (x,y) además de definir el ancho (w) y altura (h) de la imagen.
     SDL_Rect locdado;
     SDL_Rect locmesa;
+    SDL_Rect loccant;
+    SDL_Rect locapdado;
+    SDL_Rect loctextocant;
+    SDL_Rect loctextodado;
+    SDL_Rect locapostar;
+    SDL_Rect locmentiroso;
 
 
 
@@ -82,7 +86,6 @@ void JUGADORIA()
 
 
 
-
     //Genera semilla aleatoria
     srand(time(NULL));
 
@@ -95,8 +98,10 @@ void JUGADORIA()
      crearfondo(fondo,windowSurface);//Carga el fondo de la ventana
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con el fondo
 
-     tusdados(windowSurface, locdado, dados_jugador1);//Carga los dados del jugador
-     SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador
+     tusdados(windowSurface, locdado, dados_jugador1,ventana);//Carga los dados del jugador
+     SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador (Por si acaso no se actualizó antes)
+
+
 
     //imprime(dados_jugador1, 5);
     //printf("\n\n");
@@ -134,7 +139,7 @@ void JUGADORIA()
         imprime(dados_jugador1, 5);
         printf("\n");
         Binomial = 0;
-        if( t != 0){
+        if(t != 0){
         printf("Escribe una M para llamar mentiroso o C para seguir apostando.\n");
         scanf(" %c", &letra);
         }
@@ -309,14 +314,14 @@ void JUGADORIA()
                 printf("El programa te esta apostando %i veces el dado %i", cantidad_apostada, num_dado_apostado);
                 printf("\n\n");
                 }
-                break;
+               break;
           case 'm':
           case 'M':
             printf("Mentiroso!!\n");
             imprime(dados_jugador1, 5);
             printf("\n");
             imprime(dados_jugador2, 5);
-            printf("\n");
+            printf("\n\n");
             for(i = 0; i < n; i++)
             {
                 if(num_dado_apostado == dados_jugador1[i])
@@ -347,6 +352,11 @@ void JUGADORIA()
           }
 
     }while(aux == 0);
+
+    Sleep(2000);
+
+    SDL_QUIT;
+    SDL_DestroyWindow(ventana);
 
     //printf("\n");
     //printf("%i\n", cantidad_apostada);

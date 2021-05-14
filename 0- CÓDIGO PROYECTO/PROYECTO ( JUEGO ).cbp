@@ -36,22 +36,22 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="SDL2-2.0.14/x86_64-w64-mingw32/lib" />
 		</Linker>
-		<Unit filename="MAIN.c">
+		<Unit filename="MENU.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="TEST SDL.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="libelemento gráfico.c">
+		<Unit filename="codigo juego.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="libfuncion-1.c">
+		<Unit filename="elemento grafico.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="libfuncion-1.h" />
-		<Unit filename="libfuncion-JUEGO.c">
+		<Unit filename="libreria de  funciones.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="libreria de  funciones.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
