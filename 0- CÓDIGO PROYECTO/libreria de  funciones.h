@@ -13,7 +13,7 @@ int turno;
 
 //FUNCIONES MENU
 
-void JUGADORIA(); //Llama al código del juego
+int JUGADORIA(); //Llama al código del juego
 
 //FUNCIONES JUEGO
 

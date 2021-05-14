@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
         printf("\n\n");
         FILE *archivo;
         FILE *fp;
+        ranking registro, nombre;
     switch (opcion)
     {
 
@@ -47,12 +48,23 @@ int main(int argc, char *argv[])
 
        case 'C':
        case 'c':
+           fp = fopen ( "registro.txt", "r+" );
+           printf("--ESCRIBE EL APODO(UNA PALABRA) QUE QUIERES QUE APAREZCA EN EL REGISTRO--\n");
+           scanf("%49s", nombre.APODO);
+           fseek(fp, 0, SEEK_END);
+           fprintf(fp, "%s", "\n\n");
+           fprintf(fp, nombre.APODO);
+           fprintf(fp, "%s", " ---> ");
+
            printf("Jugar contra una IA\n\n");
 
-           JUGADORIA();
+           registro.turno= JUGADORIA();
 
            printf("\n\n-----| Escriba 'volver' y posteriormente pulse 'enter' para volver al menu anterior |-----\n\n");
+           fprintf(fp, "%i", registro.turno);
            scanf(" %6s", volver);
+           fclose ( fp );
+
            break;
 
        case 'D':
@@ -64,7 +76,7 @@ int main(int argc, char *argv[])
         case 'E':
        case 'e':
         printf("\n********************| Estas son las puntuaciones de los jugadores |********************\n");
-       fp = fopen("Ranking.txt","r");
+       fp = fopen("registro.txt","r");
 
  	    while (feof(fp) == 0)
  	    {

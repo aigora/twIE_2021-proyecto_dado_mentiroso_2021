@@ -10,7 +10,7 @@
 #define anchu 1200 //Anchura de la ventana
 
 
-void JUGADORIA()
+int JUGADORIA()
 {
     //Variables del funcionamiento del juego
     int i, j;
@@ -362,4 +362,5 @@ void JUGADORIA()
     //printf("%i\n", cantidad_apostada);
     //printf("%i\n", num_dado_apostado);
     //printf("%i\n", t);
+    return t;
 }
