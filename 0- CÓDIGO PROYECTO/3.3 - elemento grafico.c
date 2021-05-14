@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "libreria de  funciones.h"
+#include "3.0- libreria de  funciones.h"
 
 //Función que carga y coloca el fondo.
 

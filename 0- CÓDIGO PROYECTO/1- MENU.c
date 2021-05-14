@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include "libreria de  funciones.h"
+#include "3.0- libreria de  funciones.h"
 #define U 0.036 //Umbral
 
 
