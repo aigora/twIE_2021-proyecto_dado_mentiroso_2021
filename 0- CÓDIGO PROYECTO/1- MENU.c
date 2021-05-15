@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
        case 'A':
        case 'a':
-           archivo = fopen("reglas_dado_mentiroso.txt","r");
+           archivo = fopen("txt/reglas_dado_mentiroso.txt","r");
 
  	    while (feof(archivo) == 0)
  	    {
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
        case 'C':
        case 'c':
-           fp = fopen ( "registro.txt", "r+" );
+           fp = fopen ( "txt/registro.txt", "r+" );
            printf("--ESCRIBE EL APODO(UNA PALABRA) QUE QUIERES QUE APAREZCA EN EL REGISTRO--\n");
            scanf("%49s", nombre.APODO);
            fseek(fp, 0, SEEK_END);
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
         case 'E':
        case 'e':
         printf("\n********************| Estas son las puntuaciones de los jugadores |********************\n");
-       fp = fopen("registro.txt","r");
+       fp = fopen("txt/registro.txt","r");
 
  	    while (feof(fp) == 0)
  	    {
