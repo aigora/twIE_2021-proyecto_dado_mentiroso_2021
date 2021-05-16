@@ -1,5 +1,3 @@
 APODO DEL JUGADOR ---> RONDAS JUGADAS
 
 ruben ---> 4
-
-juan ---> 3

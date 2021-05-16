@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     {
         printf("\n\n  A continuacion se mostraran multiples opciones.\n  Elija la opcion que desee pulsando dicha tecla y posteriormente 'enter':\n");
         printf("\n");
-        printf("\tA --> Explicacion del juego DADO MENTIROSO.\n\n\tB --> Jugar contra otro jugador.\n\n\tC --> Jugar contra una IA.\n\n\tD --> Salir del menu.\n\n\tE --> Mostrar el ranking.\n\n\n\n");
+        printf("\tA --> Explicacion del juego DADO MENTIROSO.\n\n\tB --> Jugar contra una IA.\n\n\tC --> Salir del menu.\n\n\tD --> Mostrar el ranking.\n\n\n\n");
         scanf(" %c",&opcion);
         printf("\n\n");
         FILE *archivo;
@@ -41,13 +41,6 @@ int main(int argc, char *argv[])
 
        case 'B':
        case 'b':
-           printf("Jugador contra jugador\n");
-           printf("\n-----| Escriba 'volver' y posteriormente pulse 'enter' para volver al menu anterior |-----\n\n");
-           scanf(" %6s", volver);
-           break;
-
-       case 'C':
-       case 'c':
            fp = fopen ( "registro.txt", "r+" );
            printf("--ESCRIBE EL APODO(UNA PALABRA) QUE QUIERES QUE APAREZCA EN EL REGISTRO--\n");
            scanf("%49s", nombre.APODO);
@@ -58,7 +51,7 @@ int main(int argc, char *argv[])
 
            printf("Jugar contra una IA\n\n");
 
-           registro.turno= JUGADORIA();
+           registro.turno = JUGADORIA();
 
            printf("\n\n-----| Escriba 'volver' y posteriormente pulse 'enter' para volver al menu anterior |-----\n\n");
            fprintf(fp, "%i", registro.turno);
@@ -67,14 +60,14 @@ int main(int argc, char *argv[])
 
            break;
 
-       case 'D':
-       case 'd':
+       case 'C':
+       case 'c':
         printf("*************************************| Hasta luego!! |*************************************\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Esperemos verle pronto por aqui |~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
         break;
 
-        case 'E':
-       case 'e':
+        case 'D':
+       case 'd':
         printf("\n********************| Estas son las puntuaciones de los jugadores |********************\n");
        fp = fopen("registro.txt","r");
 
