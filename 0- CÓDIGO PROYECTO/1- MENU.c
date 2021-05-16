@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
        case 'A':
        case 'a':
-           archivo = fopen("reglas_dado_mentiroso.txt","r");
+           archivo = fopen("txt/reglas_dado_mentiroso.txt","r");
 
  	    while (feof(archivo) == 0)
  	    {
@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
        case 'B':
        case 'b':
            fp = fopen ( "registro.txt", "r+" );
+
            printf("--ESCRIBE EL APODO(UNA PALABRA) QUE QUIERES QUE APAREZCA EN EL REGISTRO--\n");
            scanf("%49s", nombre.APODO);
            fseek(fp, 0, SEEK_END);
