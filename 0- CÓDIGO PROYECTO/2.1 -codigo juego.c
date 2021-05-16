@@ -45,8 +45,9 @@ int JUGADORIA()
     SDL_Surface *Dado[5]={NULL};
     SDL_Surface *Dadoia[5]={NULL};
     SDL_Surface *fondo=NULL;
+    SDL_Surface *histodadosjug[10]={NULL};
+    SDL_Surface *histodadosia[10]={NULL};
     SDL_Surface *windowSurface=NULL;
-    //Otras muchas variables SDL_Surface han sido asignadas dentro de las funciones para evitar conflictos.
 
     //Los SDL_Rect son un tipo de estructura de SDL la cual define la posición (x,y) además de definir el ancho (w) y altura (h) de la imagen.
     SDL_Rect locdado;
@@ -58,10 +59,6 @@ int JUGADORIA()
     SDL_Rect loctextodado;
     SDL_Rect locapostar;
     SDL_Rect locmentiroso;
-    SDL_Rect lochistodado;
-    SDL_Rect lochistodadoia;
-    SDL_Rect locapuestaia;
-    SDL_Rect loctextoapuestaia;
 
 
 
@@ -102,9 +99,6 @@ int JUGADORIA()
      crearfondo(fondo,windowSurface);//Carga el fondo de la ventana
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con el fondo
 
-
-     locdado.y = 640;//Posición predefinida de los dados del jugador.
-     locdado.x = 0;
      tusdados(windowSurface, locdado, dados_jugador1,ventana,Dado);//Carga los dados del jugador
      SDL_UpdateWindowSurface(ventana);//Actualiza ventana con los dados del jugador (Por si acaso no se actualizó antes)
 
@@ -165,17 +159,10 @@ int JUGADORIA()
                     rx = windowEvent.button.x;
                     ry = windowEvent.button.y;
                     if(((rx>=400)&&(rx<=800))&&((ry>=130)&&(ry<=255)))
-                    {
                         letra = 'C';
-                        on=0;
-                    }
                     if(((rx>=400)&&(rx<=800))&&((ry>=440)&&(ry<=565)))
-                    {
                         letra = 'M';
-                        on=0;
-                    }
-                    if((rx<400)&&(rx>800)&&(ry<130)&&(ry>255)&&(rx<400)&&(rx>800)&&(ry<440)&&(ry>565))
-                         on = 1;
+                    on = 0;
                     break;
                 }
             }
@@ -213,58 +200,26 @@ int JUGADORIA()
                         rx = windowEvent.button.x;
                         ry = windowEvent.button.y;
                         if(((rx>=360)&&(rx<=397))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 1;
-                            on=0;
-                        }
                         if(((rx>=410)&&(rx<=447))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 2;
-                            on=0;
-                        }
                         if(((rx>=460)&&(rx<=497))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 3;
-                            on=0;
-                        }
                         if(((rx>=510)&&(rx<=547))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 4;
-                            on=0;
-                        }
                         if(((rx>=560)&&(rx<=597))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 5;
-                            on=0;
-                        }
                         if(((rx>=610)&&(rx<=647))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 6;
-                            on=0;
-                        }
                         if(((rx>=660)&&(rx<=697))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 7;
-                            on=0;
-                        }
                         if(((rx>=710)&&(rx<=747))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 8;
-                            on=0;
-                        }
-
                         if(((rx>=760)&&(rx<=797))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 9;
-                            on=0;
-                        }
                         if(((rx>=810)&&(rx<=847))&&((ry>=335)&&(ry<=372)))
-                        {
                             cantidad_apostada = 10;
-                            on=0;
-                        }
-                        if((rx<360)&&(rx>397)&&(rx<410)&&(rx>447)&&(rx<460)&&(rx>497)&&(rx<510)&&(rx>547)&&(rx<610)&&(rx>647)&&(rx<560)&&(rx>597)&&(rx<660)&&(rx>697)&&(rx<710)&&(rx>747)&&(rx<760)&&(rx<797)&&(rx<810)&&(rx>847))
-                            on = 1;
+                        on = 0;
                         break;
                     }
                 }
@@ -330,7 +285,7 @@ int JUGADORIA()
                            num_dado_apostado = 6;
                            on=0;
                         }
-                        if((rx<460)&&(rx>497)&&(rx<510)&&(rx>547)&&(rx<560)&&(rx>597)&&(rx<610)&&(rx>647)&&(rx<660)&&(rx>697)&&(rx<710)&&(rx>747)&&(ry>335)&&(ry<372))
+                        if((rx<=460)&&(rx>=497)&&(rx<=510)&&(rx>=547)&&(rx<=560)&&(rx>=597)&&(rx<=610)&&(rx>=647)&&(rx<=660)&&(rx>=697)&&(rx<=710)&&(rx>=747)&&(ry>=335)&&(ry<=372))
                         {
                             on = 1;
                         }
@@ -345,7 +300,6 @@ int JUGADORIA()
 
                 //scanf(" %i", &num_dado_apostado);
                 mesa(windowSurface,locmesa,ventana);
-                lochistodado.y = histodados(windowSurface,cantidad_apostada,num_dado_apostado,lochistodado,ventana);
             }while ((num_dado_apostado < 1) || (num_dado_apostado > 6));
 
 
@@ -397,33 +351,7 @@ int JUGADORIA()
                     printf("PERDISTE!\n");
 
                     derrota(fondo,windowSurface,ventana);
-                    locdado.y = 160;
-                    locdado.x = 435;
-                    tusdados(windowSurface, locdado, dados_jugador1,ventana,Dado);
-                    dadosia(windowSurface,dados_jugador2,Dadoia,locdadoia,ventana);
-                    while(on)
-                {
-                    SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
-                    while(SDL_PollEvent(&windowEvent))
-                    {
-                        switch(windowEvent.type)
-                        {
-                        case SDL_QUIT:
-                            on = 0;
-                            break;
-                        case SDL_MOUSEBUTTONDOWN:
-                            rx = windowEvent.button.x;
-                            ry = windowEvent.button.y;
-                            if(((rx>=958)&&(rx<=1150))&&((ry>=560)&&(ry<=650)))
-                                on = 0;
-                            if(((rx<958)&&(rx>1150))&&((ry<560)&&(ry>650)))
-                                on = 1;
-                            break;
-                        }
-                    }
-                }
-                on = 1;
+                    todosdados(windowSurface,dados_jugador1,dados_jugador2,Dado,Dadoia,locdado,locdadoia,ventana);
                 }
                 else
                 {
@@ -431,33 +359,7 @@ int JUGADORIA()
                     printf("GANASTE!!!");
 
                     victoria(fondo,windowSurface,ventana);
-                    locdado.y = 160;
-                    locdado.x = 435;
-                    tusdados(windowSurface, locdado, dados_jugador1,ventana,Dado);
-                    dadosia(windowSurface,dados_jugador2,Dadoia,locdadoia,ventana);
-                    while(on)
-                {
-                    SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
-                    while(SDL_PollEvent(&windowEvent))
-                    {
-                        switch(windowEvent.type)
-                        {
-                        case SDL_QUIT:
-                            on = 0;
-                            break;
-                        case SDL_MOUSEBUTTONDOWN:
-                            rx = windowEvent.button.x;
-                            ry = windowEvent.button.y;
-                            if(((rx>=958)&&(rx<=1150))&&((ry>=560)&&(ry<=650)))
-                                on = 0;
-                            if(((rx<958)&&(rx>1150))&&((ry<560)&&(ry>650)))
-                                on = 1;
-                            break;
-                        }
-                    }
-                }
-                on = 1;
+                    todosdados(windowSurface,dados_jugador1,dados_jugador2,Dado,Dadoia,locdado,locdadoia,ventana);
                 }
                 aux = 1;
             }
@@ -561,13 +463,7 @@ int JUGADORIA()
                 //printf("%i\n", num_dado_apostado);
                 //printf("%i\n", cantidad_apostada);
                 printf("El programa te esta apostando %i veces el dado %i", cantidad_apostada, num_dado_apostado);
-
-                apostaria(windowSurface,cantidad_apostada,num_dado_apostado,locapuestaia,loctextoapuestaia,ventana);
-
                 printf("\n\n");
-
-                lochistodadoia.y = histodadosia(windowSurface,cantidad_apostada,num_dado_apostado,lochistodadoia,ventana);
-
                 }
                break;
           case 'm':
@@ -600,33 +496,7 @@ int JUGADORIA()
                 printf("GANASTE!!!\n");
 
                 victoria(fondo,windowSurface,ventana);
-                locdado.y = 160;
-                locdado.x = 435;
-                tusdados(windowSurface, locdado, dados_jugador1,ventana,Dado);
-                dadosia(windowSurface,dados_jugador2,Dadoia,locdadoia,ventana);
-                while(on)
-                {
-                    SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
-                    while(SDL_PollEvent(&windowEvent))
-                    {
-                        switch(windowEvent.type)
-                        {
-                        case SDL_QUIT:
-                            on = 0;
-                            break;
-                        case SDL_MOUSEBUTTONDOWN:
-                            rx = windowEvent.button.x;
-                            ry = windowEvent.button.y;
-                            if(((rx>=958)&&(rx<=1150))&&((ry>=560)&&(ry<=650)))
-                                on = 0;
-                            if(((rx<958)&&(rx>1150))&&((ry<560)&&(ry>650)))
-                                on = 1;
-                            break;
-                        }
-                    }
-                }
-                on = 1;
+                todosdados(windowSurface,dados_jugador1,dados_jugador2,Dado,Dadoia,locdado,locdadoia,ventana);
 
             }
             else
@@ -636,33 +506,7 @@ int JUGADORIA()
 
 
                 derrota(fondo,windowSurface,ventana);
-                locdado.y = 160;
-                locdado.x = 435;
-                tusdados(windowSurface, locdado, dados_jugador1,ventana,Dado);
-                dadosia(windowSurface,dados_jugador2,Dadoia,locdadoia,ventana);
-                while(on)
-                {
-                    SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
-                    while(SDL_PollEvent(&windowEvent))
-                    {
-                        switch(windowEvent.type)
-                        {
-                        case SDL_QUIT:
-                            on = 0;
-                            break;
-                        case SDL_MOUSEBUTTONDOWN:
-                            rx = windowEvent.button.x;
-                            ry = windowEvent.button.y;
-                            if(((rx>=958)&&(rx<=1150))&&((ry>=560)&&(ry<=650)))
-                                on = 0;
-                            if(((rx<958)&&(rx>1150))&&((ry<560)&&(ry>650)))
-                                on = 1;
-                            break;
-                        }
-                    }
-                }
-                on = 1;
+                todosdados(windowSurface,dados_jugador1,dados_jugador2,Dado,Dadoia,locdado,locdadoia,ventana);
             }
             aux = 1;
             break;
@@ -673,10 +517,15 @@ int JUGADORIA()
 
     }while(aux == 0);
 
-
+    Sleep(3000);
 
     SDL_QUIT;
     SDL_DestroyWindow(ventana);
+
+    //printf("\n");
+    //printf("%i\n", cantidad_apostada);
+    //printf("%i\n", num_dado_apostado);
+    //printf("%i\n", t);
 
     return t;
 }
