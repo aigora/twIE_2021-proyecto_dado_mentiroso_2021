@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
        case 'B':
        case 'b':
-           fp = fopen ( "registro.txt", "r+" );
+           fp = fopen ( "txt/registro.txt", "r+" );
 
            printf("--ESCRIBE EL APODO(UNA PALABRA) QUE QUIERES QUE APAREZCA EN EL REGISTRO--\n");
            scanf("%49s", nombre.APODO);
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
         case 'D':
        case 'd':
         printf("\n********************| Estas son las puntuaciones de los jugadores |********************\n");
-       fp = fopen("registro.txt","r");
+       fp = fopen("txt/registro.txt","r");
 
  	    while (feof(fp) == 0)
  	    {
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 
     }
     }
-    while((opcion!='d')&&(opcion!='D'));
+    while((opcion!='c')&&(opcion!='C'));
 
     return 0;
 }
