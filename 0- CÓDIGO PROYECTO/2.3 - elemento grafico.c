@@ -42,15 +42,14 @@ void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],
         if(dados_jugador1[i]==6)
             Dado[i]=SDL_LoadBMP("DADO6.bmp");
     }
-    locdado.y = 640;
-    locdado.x = 0;
+
     for(i=0;i<5;i++)
     {
         locdado.x += 50;
         locdado.w = Dado[i]->w;
         locdado.h = Dado[i]->h;
         SDL_BlitSurface(Dado[i],NULL,windowSurface,&locdado);
-        Sleep(400);
+        SDL_Delay(200);
         SDL_UpdateWindowSurface(ventana);
     }
 
@@ -233,34 +232,42 @@ void aposmenti(SDL_Surface *windowSurface, SDL_Rect locapostar, SDL_Rect locment
 
 void victoria(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
 {
+    SDL_Surface *salir;
+    SDL_Rect locsalir;
+
     fondo = SDL_LoadBMP("VICTORIA.bmp");
+    salir = SDL_LoadBMP("SALIR.bmp");
 
+    locsalir.x = 958;
+    locsalir.y = 560;
+    locsalir.w = salir->w;
+    locsalir.h = salir->h;
 
-    if(fondo==NULL)
-    {
-        printf("ERROR AL CARGAR EL FONDO DEL JUEGO: %s\n", SDL_GetError());
-        exit(1);
-    }
-
-     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
-     SDL_UpdateWindowSurface(ventana);
+    SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
+    SDL_UpdateWindowSurface(ventana);
+    SDL_BlitSurface(salir,NULL,windowSurface,&locsalir);
+    SDL_UpdateWindowSurface(ventana);
 
 }
 
 
 void derrota(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
 {
+    SDL_Surface *salir;
+    SDL_Rect locsalir;
+
     fondo = SDL_LoadBMP("DERROTA.bmp");
+    salir = SDL_LoadBMP("SALIR.bmp");
 
+    locsalir.x = 958;
+    locsalir.y = 560;
+    locsalir.w = salir->w;
+    locsalir.h = salir->h;
 
-    if(fondo==NULL)
-    {
-        printf("ERROR AL CARGAR EL FONDO DEL JUEGO: %s\n", SDL_GetError());
-        exit(1);
-    }
-
-     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
-     SDL_UpdateWindowSurface(ventana);
+    SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
+    SDL_UpdateWindowSurface(ventana);
+    SDL_BlitSurface(salir,NULL,windowSurface,&locsalir);
+    SDL_UpdateWindowSurface(ventana);
 
 }
 
@@ -286,41 +293,29 @@ void mentiroso(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventan
 
 }
 
-void todosdados(SDL_Surface *windowSurface,int dados_jugador1[],int dados_jugador2[], SDL_Surface *Dado[5], SDL_Surface *Dadoia[5],SDL_Rect locdado,SDL_Rect locdadoia, SDL_Window *ventana)
+void dadosia(SDL_Surface *windowSurface,int dados_jugador2[], SDL_Surface *Dadoia[5],SDL_Rect locdadoia, SDL_Window *ventana)
 {
+
     int i;
+
+    locdadoia.y = 500;
+    locdadoia.x = 435;
 
     for(i=0;i<5;i++)
     {
         if(dados_jugador2[i]==1)
-            Dadoia[i]=SDL_LoadBMP("DADO1.bmp");
+            Dadoia[i]=SDL_LoadBMP("DADO1+.bmp");
         if(dados_jugador2[i]==2)
-            Dadoia[i]=SDL_LoadBMP("DADO2.bmp");
+            Dadoia[i]=SDL_LoadBMP("DADO2+.bmp");
         if(dados_jugador2[i]==3)
-            Dadoia[i]=SDL_LoadBMP("DADO3.bmp");
+            Dadoia[i]=SDL_LoadBMP("DADO3+.bmp");
         if(dados_jugador2[i]==4)
-            Dadoia[i]=SDL_LoadBMP("DADO4.bmp");
+            Dadoia[i]=SDL_LoadBMP("DADO4+.bmp");
         if(dados_jugador2[i]==5)
-            Dadoia[i]=SDL_LoadBMP("DADO5.bmp");
+            Dadoia[i]=SDL_LoadBMP("DADO5+.bmp");
         if(dados_jugador2[i]==6)
-            Dadoia[i]=SDL_LoadBMP("DADO6.bmp");
+            Dadoia[i]=SDL_LoadBMP("DADO6+.bmp");
     }
-
-    locdado.y = 400;
-    locdado.x = 200;
-    for(i=0;i<5;i++)
-    {
-        locdado.x += 50;
-        locdado.w = Dado[i]->w;
-        locdado.h = Dado[i]->h;
-        SDL_BlitSurface(Dado[i],NULL,windowSurface,&locdado);
-        Sleep(400);
-        SDL_UpdateWindowSurface(ventana);
-    }
-
-
-    locdadoia.y = 200;
-    locdadoia.x = 300;
 
     for(i=0;i<5;i++)
     {
@@ -328,11 +323,144 @@ void todosdados(SDL_Surface *windowSurface,int dados_jugador1[],int dados_jugado
         locdadoia.w = Dadoia[i]->w;
         locdadoia.h = Dadoia[i]->h;
         SDL_BlitSurface(Dadoia[i],NULL,windowSurface,&locdadoia);
-        Sleep(400);
         SDL_UpdateWindowSurface(ventana);
     }
 
 
 }
 
+void apostaria(SDL_Surface *windowSurface,int cantidad_apostada, int num_dado_apostado, SDL_Rect locapuestaia,SDL_Rect loctextoapuestaia, SDL_Window *ventana)
+{
+    SDL_Surface *dadoapuesta;
+    SDL_Surface *texto;
+    int i;
 
+    if(num_dado_apostado==1)
+        dadoapuesta = SDL_LoadBMP("DADO1+.bmp");
+    if(num_dado_apostado==2)
+        dadoapuesta = SDL_LoadBMP("DADO2+.bmp");
+    if(num_dado_apostado==3)
+        dadoapuesta = SDL_LoadBMP("DADO3+.bmp");
+    if(num_dado_apostado==4)
+        dadoapuesta = SDL_LoadBMP("DADO4+.bmp");
+    if(num_dado_apostado==5)
+        dadoapuesta = SDL_LoadBMP("DADO5+.bmp");
+    if(num_dado_apostado==6)
+        dadoapuesta = SDL_LoadBMP("DADO6+.bmp");
+
+
+    texto = SDL_LoadBMP("APUESTAIA.bmp");
+
+    loctextoapuestaia.x = 370;
+    loctextoapuestaia.y = 280;
+    loctextoapuestaia.w = texto->w;
+    loctextoapuestaia.h = texto->h;
+
+    SDL_BlitSurface(texto,NULL,windowSurface,&loctextoapuestaia);
+    SDL_UpdateWindowSurface(ventana);
+
+    locapuestaia.x = 425;
+    locapuestaia.y = 360;
+    locapuestaia.w = dadoapuesta->w;
+    locapuestaia.h = dadoapuesta->h;
+
+    for(i=0;i<cantidad_apostada;i++)
+    {
+        locapuestaia.x += 50;
+        SDL_BlitSurface(dadoapuesta,NULL,windowSurface,&locapuestaia);
+        SDL_UpdateWindowSurface(ventana);
+        SDL_Delay(400);
+
+    }
+
+}
+
+int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apostado,SDL_Rect lochistodado,SDL_Window *ventana)
+{
+    SDL_Surface *dadoapuesta;
+
+    int i;
+
+    if(num_dado_apostado==1)
+        dadoapuesta = SDL_LoadBMP("DADO1.bmp");
+    if(num_dado_apostado==2)
+        dadoapuesta = SDL_LoadBMP("DADO2.bmp");
+    if(num_dado_apostado==3)
+        dadoapuesta = SDL_LoadBMP("DADO3.bmp");
+    if(num_dado_apostado==4)
+        dadoapuesta = SDL_LoadBMP("DADO4.bmp");
+    if(num_dado_apostado==5)
+        dadoapuesta = SDL_LoadBMP("DADO5.bmp");
+    if(num_dado_apostado==6)
+        dadoapuesta = SDL_LoadBMP("DADO6.bmp");
+
+    lochistodado.x = -30;
+    lochistodado.y += 50;
+    lochistodado.w = dadoapuesta->w;
+    lochistodado.h = dadoapuesta->h;
+
+    for(i=0;i<cantidad_apostada;i++)
+    {
+
+        lochistodado.x += 40;
+        if((lochistodado.x+37)>=250)
+        {
+            lochistodado.x = 20;
+            lochistodado.y += 50;
+        }
+
+
+
+        SDL_BlitSurface(dadoapuesta,NULL,windowSurface,&lochistodado);
+        SDL_UpdateWindowSurface(ventana);
+        SDL_Delay(400);
+
+    }
+
+ return lochistodado.y;
+}
+
+int histodadosia(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apostado,SDL_Rect lochistodadoia,SDL_Window *ventana)
+{
+    SDL_Surface *dadoapuesta;
+
+    int i;
+
+    if(num_dado_apostado==1)
+        dadoapuesta = SDL_LoadBMP("DADO1+.bmp");
+    if(num_dado_apostado==2)
+        dadoapuesta = SDL_LoadBMP("DADO2+.bmp");
+    if(num_dado_apostado==3)
+        dadoapuesta = SDL_LoadBMP("DADO3+.bmp");
+    if(num_dado_apostado==4)
+        dadoapuesta = SDL_LoadBMP("DADO4+.bmp");
+    if(num_dado_apostado==5)
+        dadoapuesta = SDL_LoadBMP("DADO5+.bmp");
+    if(num_dado_apostado==6)
+        dadoapuesta = SDL_LoadBMP("DADO6+.bmp");
+
+    lochistodadoia.x = 925;
+    lochistodadoia.y += 50;
+    lochistodadoia.w = dadoapuesta->w;
+    lochistodadoia.h = dadoapuesta->h;
+
+    for(i=0;i<cantidad_apostada;i++)
+    {
+
+        lochistodadoia.x += 40;
+        if((lochistodadoia.x+37)>=1200)
+        {
+            lochistodadoia.x = 965;
+            lochistodadoia.y += 50;
+        }
+
+
+
+        SDL_BlitSurface(dadoapuesta,NULL,windowSurface,&lochistodadoia);
+        SDL_UpdateWindowSurface(ventana);
+        SDL_Delay(400);
+
+    }
+
+    return lochistodadoia.y;
+}

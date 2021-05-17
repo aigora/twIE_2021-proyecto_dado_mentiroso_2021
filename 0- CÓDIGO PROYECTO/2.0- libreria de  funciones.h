@@ -35,4 +35,7 @@ void aposmenti(SDL_Surface *windowSurface, SDL_Rect locapostar, SDL_Rect locment
 void victoria(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana);
 void derrota(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana);
 void mentiroso(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana, int h);
-void todosdados(SDL_Surface *windowSurface,int dados_jugador1[],int dados_jugador2[], SDL_Surface *Dado[5], SDL_Surface *dadosia[5],SDL_Rect locdado,SDL_Rect locdadoia,SDL_Window *ventana);
+void dadosia(SDL_Surface *windowSurface,int dados_jugador2[],SDL_Surface *dadosia[5],SDL_Rect locdadoia,SDL_Window *ventana);
+void apostaria(SDL_Surface *windowSurface,int cantidad_apostada, int num_dado_apostado, SDL_Rect locapuestaia,SDL_Rect loctextoapuestaia, SDL_Window *ventana);
+int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apostado,SDL_Rect lochistodado,SDL_Window *ventana);
+int histodadosia(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apostado,SDL_Rect lochistodadoia,SDL_Window *ventana);

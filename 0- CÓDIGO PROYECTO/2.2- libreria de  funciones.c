@@ -69,4 +69,3 @@ int fact(int x)
     res = 1;
   return res;
 }
-
