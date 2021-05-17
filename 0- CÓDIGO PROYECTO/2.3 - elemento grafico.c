@@ -464,4 +464,3 @@ int histodadosia(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_a
 
     return lochistodadoia.y;
 }
-
