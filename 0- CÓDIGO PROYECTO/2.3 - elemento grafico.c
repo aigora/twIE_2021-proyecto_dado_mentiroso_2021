@@ -7,7 +7,7 @@
 void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface)
 {
 
-    fondo = SDL_LoadBMP("fondo.bmp");//Carga la imagen del tablero
+    fondo = SDL_LoadBMP("IMG/fondo.bmp");//Carga la imagen del tablero
 
 
 
@@ -30,17 +30,17 @@ void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],
     for(i=0;i<5;i++)
     {
         if(dados_jugador1[i]==1)
-            Dado[i]=SDL_LoadBMP("DADO1.bmp");
+            Dado[i]=SDL_LoadBMP("IMG/DADO1.bmp");
         if(dados_jugador1[i]==2)
-            Dado[i]=SDL_LoadBMP("DADO2.bmp");
+            Dado[i]=SDL_LoadBMP("IMG/DADO2.bmp");
         if(dados_jugador1[i]==3)
-            Dado[i]=SDL_LoadBMP("DADO3.bmp");
+            Dado[i]=SDL_LoadBMP("IMG/DADO3.bmp");
         if(dados_jugador1[i]==4)
-            Dado[i]=SDL_LoadBMP("DADO4.bmp");
+            Dado[i]=SDL_LoadBMP("IMG/DADO4.bmp");
         if(dados_jugador1[i]==5)
-            Dado[i]=SDL_LoadBMP("DADO5.bmp");
+            Dado[i]=SDL_LoadBMP("IMG/DADO5.bmp");
         if(dados_jugador1[i]==6)
-            Dado[i]=SDL_LoadBMP("DADO6.bmp");
+            Dado[i]=SDL_LoadBMP("IMG/DADO6.bmp");
     }
 
     for(i=0;i<5;i++)
@@ -61,7 +61,7 @@ void mesa(SDL_Surface *windowSurface, SDL_Rect locmesa,SDL_Window *ventana)
 {
     SDL_Surface *mesa=NULL;
 
-    mesa = SDL_LoadBMP("MESA.bmp");
+    mesa = SDL_LoadBMP("IMG/MESA.bmp");
     locmesa.x = 257;
     locmesa.y = 0;
     locmesa.w = mesa->w;
@@ -78,41 +78,41 @@ void apostarcant(SDL_Surface *windowSurface, SDL_Rect loccant,SDL_Rect loctextoc
     SDL_Surface *texto=NULL;
     SDL_Surface *cantidad[10]={NULL};
 
-    texto = SDL_LoadBMP("TEXTOCANTIDAD.bmp");
+    texto = SDL_LoadBMP("IMG/TEXTOCANTIDAD.bmp");
 
     for(i=0;i<10;i++)
     {
         switch(i)
         {
         case 0:
-            cantidad[i] = SDL_LoadBMP("NUM1.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM1.bmp");
             break;
         case 1:
-            cantidad[i] = SDL_LoadBMP("NUM2.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM2.bmp");
             break;
         case 2:
-            cantidad[i] = SDL_LoadBMP("NUM3.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM3.bmp");
             break;
         case 3:
-            cantidad[i] = SDL_LoadBMP("NUM4.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM4.bmp");
             break;
         case 4:
-            cantidad[i] = SDL_LoadBMP("NUM5.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM5.bmp");
             break;
         case 5:
-            cantidad[i] = SDL_LoadBMP("NUM6.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM6.bmp");
             break;
         case 6:
-            cantidad[i] = SDL_LoadBMP("NUM7.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM7.bmp");
             break;
         case 7:
-            cantidad[i] = SDL_LoadBMP("NUM8.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM8.bmp");
             break;
         case 8:
-            cantidad[i] = SDL_LoadBMP("NUM9.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM9.bmp");
             break;
         case 9:
-            cantidad[i] = SDL_LoadBMP("NUM10.bmp");
+            cantidad[i] = SDL_LoadBMP("IMG/NUM10.bmp");
             break;
 
         }
@@ -150,29 +150,29 @@ void apostardado(SDL_Surface *windowSurface, SDL_Rect locapdado,SDL_Rect loctext
     SDL_Surface *texto=NULL;
     SDL_Surface *dado[6]={NULL};
 
-    texto = SDL_LoadBMP("TEXTOAPOSTAR.bmp");
+    texto = SDL_LoadBMP("IMG/TEXTOAPOSTAR.bmp");
 
     for(i=0;i<10;i++)
     {
         switch(i)
         {
         case 0:
-            dado[i] = SDL_LoadBMP("DADO1.bmp");
+            dado[i] = SDL_LoadBMP("IMG/DADO1.bmp");
             break;
         case 1:
-            dado[i] = SDL_LoadBMP("DADO2.bmp");
+            dado[i] = SDL_LoadBMP("IMG/DADO2.bmp");
             break;
         case 2:
-            dado[i] = SDL_LoadBMP("DADO3.bmp");
+            dado[i] = SDL_LoadBMP("IMG/DADO3.bmp");
             break;
         case 3:
-            dado[i] = SDL_LoadBMP("DADO4.bmp");
+            dado[i] = SDL_LoadBMP("IMG/DADO4.bmp");
             break;
         case 4:
-            dado[i] = SDL_LoadBMP("DADO5.bmp");
+            dado[i] = SDL_LoadBMP("IMG/DADO5.bmp");
             break;
         case 5:
-            dado[i] = SDL_LoadBMP("DADO6.bmp");
+            dado[i] = SDL_LoadBMP("IMG/DADO6.bmp");
             break;
 
         }
@@ -208,8 +208,8 @@ void aposmenti(SDL_Surface *windowSurface, SDL_Rect locapostar, SDL_Rect locment
     SDL_Surface *texto1=NULL;
     SDL_Surface *texto2=NULL;
 
-    texto1 = SDL_LoadBMP("APOSTAR.bmp");
-    texto2 = SDL_LoadBMP("MENTIROSO.bmp");
+    texto1 = SDL_LoadBMP("IMG/APOSTAR.bmp");
+    texto2 = SDL_LoadBMP("IMG/MENTIROSO.bmp");
 
     locapostar.x = 400;
     locapostar.y = 130;
@@ -235,8 +235,8 @@ void victoria(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana
     SDL_Surface *salir;
     SDL_Rect locsalir;
 
-    fondo = SDL_LoadBMP("VICTORIA.bmp");
-    salir = SDL_LoadBMP("SALIR.bmp");
+    fondo = SDL_LoadBMP("IMG/VICTORIA.bmp");
+    salir = SDL_LoadBMP("IMG/SALIR.bmp");
 
     locsalir.x = 958;
     locsalir.y = 560;
@@ -256,8 +256,8 @@ void derrota(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
     SDL_Surface *salir;
     SDL_Rect locsalir;
 
-    fondo = SDL_LoadBMP("DERROTA.bmp");
-    salir = SDL_LoadBMP("SALIR.bmp");
+    fondo = SDL_LoadBMP("IMG/DERROTA.bmp");
+    salir = SDL_LoadBMP("IMG/SALIR.bmp");
 
     locsalir.x = 958;
     locsalir.y = 560;
@@ -277,9 +277,9 @@ void derrota(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
 void mentiroso(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana, int h)
 {
     if(h==0)
-        fondo = SDL_LoadBMP("MENTIROSOIA.bmp");
+        fondo = SDL_LoadBMP("IMG/MENTIROSOIA.bmp");
     if(h==1)
-        fondo = SDL_LoadBMP("MENTIROSOTU.bmp");
+        fondo = SDL_LoadBMP("IMG/MENTIROSOTU.bmp");
 
     if(fondo==NULL)
     {
@@ -304,17 +304,17 @@ void dadosia(SDL_Surface *windowSurface,int dados_jugador2[], SDL_Surface *Dadoi
     for(i=0;i<5;i++)
     {
         if(dados_jugador2[i]==1)
-            Dadoia[i]=SDL_LoadBMP("DADO1+.bmp");
+            Dadoia[i]=SDL_LoadBMP("IMG/DADO1+.bmp");
         if(dados_jugador2[i]==2)
-            Dadoia[i]=SDL_LoadBMP("DADO2+.bmp");
+            Dadoia[i]=SDL_LoadBMP("IMG/DADO2+.bmp");
         if(dados_jugador2[i]==3)
-            Dadoia[i]=SDL_LoadBMP("DADO3+.bmp");
+            Dadoia[i]=SDL_LoadBMP("IMG/DADO3+.bmp");
         if(dados_jugador2[i]==4)
-            Dadoia[i]=SDL_LoadBMP("DADO4+.bmp");
+            Dadoia[i]=SDL_LoadBMP("IMG/DADO4+.bmp");
         if(dados_jugador2[i]==5)
-            Dadoia[i]=SDL_LoadBMP("DADO5+.bmp");
+            Dadoia[i]=SDL_LoadBMP("IMG/DADO5+.bmp");
         if(dados_jugador2[i]==6)
-            Dadoia[i]=SDL_LoadBMP("DADO6+.bmp");
+            Dadoia[i]=SDL_LoadBMP("IMG/DADO6+.bmp");
     }
 
     for(i=0;i<5;i++)
@@ -336,20 +336,20 @@ void apostaria(SDL_Surface *windowSurface,int cantidad_apostada, int num_dado_ap
     int i;
 
     if(num_dado_apostado==1)
-        dadoapuesta = SDL_LoadBMP("DADO1+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO1+.bmp");
     if(num_dado_apostado==2)
-        dadoapuesta = SDL_LoadBMP("DADO2+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO2+.bmp");
     if(num_dado_apostado==3)
-        dadoapuesta = SDL_LoadBMP("DADO3+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO3+.bmp");
     if(num_dado_apostado==4)
-        dadoapuesta = SDL_LoadBMP("DADO4+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO4+.bmp");
     if(num_dado_apostado==5)
-        dadoapuesta = SDL_LoadBMP("DADO5+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO5+.bmp");
     if(num_dado_apostado==6)
-        dadoapuesta = SDL_LoadBMP("DADO6+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO6+.bmp");
 
 
-    texto = SDL_LoadBMP("APUESTAIA.bmp");
+    texto = SDL_LoadBMP("IMG/APUESTAIA.bmp");
 
     loctextoapuestaia.x = 370;
     loctextoapuestaia.y = 280;
@@ -382,17 +382,17 @@ int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apo
     int i;
 
     if(num_dado_apostado==1)
-        dadoapuesta = SDL_LoadBMP("DADO1.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO1.bmp");
     if(num_dado_apostado==2)
-        dadoapuesta = SDL_LoadBMP("DADO2.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO2.bmp");
     if(num_dado_apostado==3)
-        dadoapuesta = SDL_LoadBMP("DADO3.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO3.bmp");
     if(num_dado_apostado==4)
-        dadoapuesta = SDL_LoadBMP("DADO4.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO4.bmp");
     if(num_dado_apostado==5)
-        dadoapuesta = SDL_LoadBMP("DADO5.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO5.bmp");
     if(num_dado_apostado==6)
-        dadoapuesta = SDL_LoadBMP("DADO6.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO6.bmp");
 
     lochistodado.x = -30;
     lochistodado.y += 50;
@@ -427,17 +427,17 @@ int histodadosia(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_a
     int i;
 
     if(num_dado_apostado==1)
-        dadoapuesta = SDL_LoadBMP("DADO1+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO1+.bmp");
     if(num_dado_apostado==2)
-        dadoapuesta = SDL_LoadBMP("DADO2+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO2+.bmp");
     if(num_dado_apostado==3)
-        dadoapuesta = SDL_LoadBMP("DADO3+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO3+.bmp");
     if(num_dado_apostado==4)
-        dadoapuesta = SDL_LoadBMP("DADO4+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO4+.bmp");
     if(num_dado_apostado==5)
-        dadoapuesta = SDL_LoadBMP("DADO5+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO5+.bmp");
     if(num_dado_apostado==6)
-        dadoapuesta = SDL_LoadBMP("DADO6+.bmp");
+        dadoapuesta = SDL_LoadBMP("IMG/DADO6+.bmp");
 
     lochistodadoia.x = 925;
     lochistodadoia.y += 50;
