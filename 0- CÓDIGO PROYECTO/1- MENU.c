@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     {
         printf("\n\n  A continuacion se mostraran multiples opciones.\n  Elija la opcion que desee pulsando dicha tecla y posteriormente 'enter':\n");
         printf("\n");
-        printf("\tA --> Explicacion del juego DADO MENTIROSO.\n\n\tB --> Jugar contra una IA.\n\n\tC --> Salir del menu.\n\n\tD --> Mostrar el ranking.\n\n\n\n");
+        printf("\tA --> Explicacion del juego DADO MENTIROSO.\n\n\tB --> Jugar contra una IA.\n\n\tC --> Mostrar el registro del juego.\n\n\tD --> Salir del menú.\n\n\n\n");
         scanf(" %c",&opcion);
         printf("\n\n");
         FILE *archivo;
@@ -61,15 +61,15 @@ int main(int argc, char *argv[])
 
            break;
 
-       case 'C':
-       case 'c':
+       case 'D':
+       case 'd':
         printf("*************************************| Hasta luego!! |*************************************\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Esperemos verle pronto por aqui |~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
         break;
 
-        case 'D':
-       case 'd':
-        printf("\n********************| Estas son las puntuaciones de los jugadores |********************\n");
+        case 'c':
+       case 'C':
+        printf("\n********************| Este es el registro de partidas de los jugadores |********************\n\n");
        fp = fopen("txt/registro.txt","r");
 
  	    while (feof(fp) == 0)
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 
     }
     }
-    while((opcion!='c')&&(opcion!='C'));
+    while((opcion!='D')&&(opcion!='d'));
 
     return 0;
 }
