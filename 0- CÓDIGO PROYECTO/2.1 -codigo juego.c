@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-#include <stdbool.h>
 #include <SDL2/SDL.h>
 #define U 0.036 //Umbral
 #define altu 700 //Altura de la ventana
@@ -33,14 +32,16 @@ int JUGADORIA()
     int comprobador = 0;
 
     //Variables relacionadas con el ratón/cursor
-        bool on = 1;
-        int rx,ry;
+        _Bool on = 1;  //Para alternar entre activa o desactiva la cola de eventos de SDL
+        int rx,ry;     //posiciones x e y del ratón
         Uint32 inicio;
 
 
 
 
     //Variables parte gráfica
+
+    //Variables que almacenarán imagenes.
     SDL_Window *ventana=NULL;
     SDL_Surface *Dado[5]={NULL};
     SDL_Surface *Dadoia[5]={NULL};
@@ -49,6 +50,7 @@ int JUGADORIA()
     //Otras muchas variables SDL_Surface han sido asignadas dentro de las funciones para evitar conflictos.
 
     //Los SDL_Rect son un tipo de estructura de SDL la cual define la posición (x,y) además de definir el ancho (w) y altura (h) de la imagen.
+    //Variables que almacenan posiciones.
     SDL_Rect locdado;
     SDL_Rect locdadoia;
     SDL_Rect locmesa;
@@ -153,16 +155,16 @@ int JUGADORIA()
         while(on)
         {
             SDL_UpdateWindowSurface(ventana);
-            inicio = SDL_GetTicks();
-            while(SDL_PollEvent(&windowEvent))
+            inicio = SDL_GetTicks(); //Se inicializa la funcion GetTicks
+            while(SDL_PollEvent(&windowEvent)) //Cola de eventos de SDL (Almacena los eventos como es el caso de los clicks)
             {
                 switch(windowEvent.type)
                 {
-                case SDL_QUIT:
+                case SDL_QUIT: //En caso de ser evento nulo se finaliza el bucle
                     on = 0;
                     break;
-                case SDL_MOUSEBUTTONDOWN:
-                    rx = windowEvent.button.x;
+                case SDL_MOUSEBUTTONDOWN: //En caso de que un evento sea un click ocurrira esta opción
+                    rx = windowEvent.button.x; //Definimos las posiciones del click
                     ry = windowEvent.button.y;
                     if(((rx>=400)&&(rx<=800))&&((ry>=130)&&(ry<=255)))
                     {
@@ -174,7 +176,7 @@ int JUGADORIA()
                         letra = 'M';
                         on=0;
                     }
-                    if((rx<400)&&(rx>800)&&(ry<130)&&(ry>255)&&(rx<400)&&(rx>800)&&(ry<440)&&(ry>565))
+                    if((rx<400)&&(rx>800)&&(ry<130)&&(ry>255)&&(rx<400)&&(rx>800)&&(ry<440)&&(ry>565)) //Si no se da en ningun recuadro se sigue ejecutando
                          on = 1;
                     break;
                 }
@@ -182,8 +184,7 @@ int JUGADORIA()
         }
         on = 1;
 
-        //scanf(" %c", &letra);
-        mesa(windowSurface,locmesa,ventana);
+        mesa(windowSurface,locmesa,ventana);//Limpia toda la imagen
 
         }
 
@@ -192,7 +193,7 @@ int JUGADORIA()
         {
         case 'C':
         case 'c':
-            t += 1;
+            t += 1;//Contador de turnos
             do
             {
                 printf("Escribe la cantidad que apuestas\n");
@@ -200,8 +201,8 @@ int JUGADORIA()
                 apostarcant(windowSurface,loccant,loctextocant,ventana);
         while(on)
             {
-                SDL_UpdateWindowSurface(ventana);
-                inicio = SDL_GetTicks();
+                SDL_UpdateWindowSurface(ventana);//Actualiza la ventana gráfica
+                inicio = SDL_GetTicks();//Mismo procedimiento de la linea 158
                 while(SDL_PollEvent(&windowEvent))
                 {
                     switch(windowEvent.type)
@@ -272,8 +273,6 @@ int JUGADORIA()
             on=1;
             printf("%i\n",cantidad_apostada);
 
-
-                //scanf(" %i", &cantidad_apostada);
                 mesa(windowSurface,locmesa,ventana);
             }while ((cantidad_apostada < x) || (cantidad_apostada > 10));
 
@@ -343,9 +342,9 @@ int JUGADORIA()
 
             on = 1;
 
-                //scanf(" %i", &num_dado_apostado);
                 mesa(windowSurface,locmesa,ventana);
                 lochistodado.y = histodados(windowSurface,cantidad_apostada,num_dado_apostado,lochistodado,ventana);
+                //Almacena la última posición y de los dados mostrados
             }while ((num_dado_apostado < 1) || (num_dado_apostado > 6));
 
 
@@ -390,14 +389,13 @@ int JUGADORIA()
                     if(num_dado_apostado == dados_jugador2[i])
                     comprobador++;
                 }
-              //  printf("%i\n", comprobador);
                 if(comprobador < cantidad_apostada)
                 {
                     printf("Eres un mentiroso!\n");
                     printf("PERDISTE!\n");
 
                     derrota(fondo,windowSurface,ventana);
-                    locdado.y = 160;
+                    locdado.y = 160;//Predefinimos la posición de los dados
                     locdado.x = 435;
                     tusdados(windowSurface, locdado, dados_jugador1,ventana,Dado);
                     dadosia(windowSurface,dados_jugador2,Dadoia,locdadoia,ventana);
@@ -557,9 +555,6 @@ int JUGADORIA()
                     cantidad_apostada += 1;
                 }
 
-                //printf("\n\n");
-                //printf("%i\n", num_dado_apostado);
-                //printf("%i\n", cantidad_apostada);
                 printf("El programa te esta apostando %i veces el dado %i", cantidad_apostada, num_dado_apostado);
 
                 apostaria(windowSurface,cantidad_apostada,num_dado_apostado,locapuestaia,loctextoapuestaia,ventana);
@@ -592,7 +587,7 @@ int JUGADORIA()
                 if(num_dado_apostado == dados_jugador2[i])
                 comprobador++;
             }
-            //printf("%i\n", comprobador);
+
 
             if(comprobador < cantidad_apostada)
             {
@@ -675,8 +670,9 @@ int JUGADORIA()
 
 
 
-    SDL_QUIT;
+
     SDL_DestroyWindow(ventana);
+    SDL_QUIT;
 
     return t;
 }

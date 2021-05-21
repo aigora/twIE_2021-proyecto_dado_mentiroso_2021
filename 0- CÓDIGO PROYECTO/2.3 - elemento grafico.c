@@ -7,7 +7,7 @@
 void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface)
 {
 
-    fondo = SDL_LoadBMP("IMG/fondo.bmp");//Carga la imagen del tablero
+    fondo = SDL_LoadBMP("IMG/fondo.bmp");//Carga la imagen en el puntero
 
 
 
@@ -17,7 +17,7 @@ void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface)
         exit(1);
     }
 
-     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);
+     SDL_BlitSurface(fondo,NULL,windowSurface,NULL);//Carga la imagen
 
 }
 
@@ -45,12 +45,12 @@ void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],
 
     for(i=0;i<5;i++)
     {
-        locdado.x += 50;
-        locdado.w = Dado[i]->w;
+        locdado.x += 50; //Posición x de los dados
+        locdado.w = Dado[i]->w; //Definimos el ancho y alto de la imagen
         locdado.h = Dado[i]->h;
-        SDL_BlitSurface(Dado[i],NULL,windowSurface,&locdado);
-        SDL_Delay(200);
-        SDL_UpdateWindowSurface(ventana);
+        SDL_BlitSurface(Dado[i],NULL,windowSurface,&locdado); //Cargamos las imagenes
+        SDL_Delay(200); //Hacemos esperar 0.2 segundos a SDL para despues ejecutar la siguiente funcion
+        SDL_UpdateWindowSurface(ventana);//Actualiza la pantalla colocando la imagen cargada
     }
 
 }
@@ -229,6 +229,7 @@ void aposmenti(SDL_Surface *windowSurface, SDL_Rect locapostar, SDL_Rect locment
 }
 
 //Dos funciones que muestran el fondo de victoria o derrota tras termianar el juego.
+//Estas funciones están acompañadas de un botón de salida para el jugador.
 
 void victoria(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
 {
@@ -293,6 +294,8 @@ void mentiroso(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventan
 
 }
 
+//Carga las imágenes de los dados de la ia y los muestra en pantalla
+
 void dadosia(SDL_Surface *windowSurface,int dados_jugador2[], SDL_Surface *Dadoia[5],SDL_Rect locdadoia, SDL_Window *ventana)
 {
 
@@ -328,6 +331,8 @@ void dadosia(SDL_Surface *windowSurface,int dados_jugador2[], SDL_Surface *Dadoi
 
 
 }
+
+//Muestra los dados que ha apostado la ia en pantalla
 
 void apostaria(SDL_Surface *windowSurface,int cantidad_apostada, int num_dado_apostado, SDL_Rect locapuestaia,SDL_Rect loctextoapuestaia, SDL_Window *ventana)
 {
@@ -375,6 +380,8 @@ void apostaria(SDL_Surface *windowSurface,int cantidad_apostada, int num_dado_ap
 
 }
 
+//Muestra los dados del jugador en el apartado del historial
+
 int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apostado,SDL_Rect lochistodado,SDL_Window *ventana)
 {
     SDL_Surface *dadoapuesta;
@@ -403,7 +410,8 @@ int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apo
     {
 
         lochistodado.x += 40;
-        if((lochistodado.x+37)>=250)
+        if((lochistodado.x+37)>=250)//Si los dados se colocan fuera de los margenes del recuadro
+                                    //los que se encuentren fuera se colocaran debajo de los primeros colocados
         {
             lochistodado.x = 20;
             lochistodado.y += 50;
@@ -419,6 +427,8 @@ int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apo
 
  return lochistodado.y;
 }
+
+//Muestra los dados de la ia en el apartado del historial
 
 int histodadosia(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apostado,SDL_Rect lochistodadoia,SDL_Window *ventana)
 {
