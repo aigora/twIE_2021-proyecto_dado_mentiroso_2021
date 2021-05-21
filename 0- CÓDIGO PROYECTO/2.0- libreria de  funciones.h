@@ -25,6 +25,7 @@ int numComb(int n, int k);
 float Prop_binomial(float Exito, float Fracaso, int k, int n);
 
 //FUNCIONES ELEMENTO GRAFICO
+//Todas las funciones están explicadas en su respectivo desarrollo
 
 void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface);
 void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],SDL_Window *ventana,SDL_Surface *Dado[5]);
