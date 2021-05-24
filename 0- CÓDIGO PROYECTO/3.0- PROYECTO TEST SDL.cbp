@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="PROYECTO ( JUEGO )" />
+		<Option title="PROYECTO TEST SDL" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/CÓDIGO PROYECTO" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/PROYECTO TEST SDL" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/CÓDIGO PROYECTO" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/PROYECTO TEST SDL" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -30,23 +30,13 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="SDL2-2.0.14/x86_64-w64-mingw32/include" />
+			<Add directory="C:/Users/sergi/OneDrive/Escritorio/GITHUB-PROGRAMACION/PROYECTOS/twIE_2021-proyecto_dado_mentiroso_2021/0- CÓDIGO PROYECTO/SDL2-2.0.14/x86_64-w64-mingw32/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
-			<Add directory="SDL2-2.0.14/x86_64-w64-mingw32/lib" />
+			<Add directory="C:/Users/sergi/OneDrive/Escritorio/GITHUB-PROGRAMACION/PROYECTOS/twIE_2021-proyecto_dado_mentiroso_2021/0- CÓDIGO PROYECTO/SDL2-2.0.14/x86_64-w64-mingw32/lib" />
 		</Linker>
-		<Unit filename="1- MENU.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="2.0- libreria de  funciones.h" />
-		<Unit filename="2.1 -codigo juego.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="2.2- libreria de  funciones.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="2.3 - elemento grafico.c">
+		<Unit filename="3.1- TEST SDL.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

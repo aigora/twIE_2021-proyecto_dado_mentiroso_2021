@@ -19,6 +19,9 @@ void crearfondo(SDL_Surface *fondo,SDL_Surface *windowSurface)
 
      SDL_BlitSurface(fondo,NULL,windowSurface,NULL);//Carga la imagen
 
+     SDL_FreeSurface(fondo);
+     fondo = NULL;
+
 }
 
 //Función que muestra los dados del jugador.
@@ -53,6 +56,12 @@ void tusdados(SDL_Surface *windowSurface, SDL_Rect locdado,int dados_jugador1[],
         SDL_UpdateWindowSurface(ventana);//Actualiza la pantalla colocando la imagen cargada
     }
 
+    for(i=0;i<5;i++)
+    {
+        SDL_FreeSurface(Dado[i]);
+        Dado[i] = NULL;
+    }
+
 }
 
 //Función para borrar todo lo que haya sobre la mesa.
@@ -68,6 +77,9 @@ void mesa(SDL_Surface *windowSurface, SDL_Rect locmesa,SDL_Window *ventana)
     locmesa.h = mesa->h;
     SDL_BlitSurface(mesa,NULL,windowSurface,&locmesa);
     SDL_UpdateWindowSurface(ventana);
+
+    SDL_FreeSurface(mesa);
+    mesa = NULL;
 }
 
 //Función para mostrar la pregunta de la cantidad que quiere apostar.
@@ -137,6 +149,15 @@ void apostarcant(SDL_Surface *windowSurface, SDL_Rect loccant,SDL_Rect loctextoc
         SDL_UpdateWindowSurface(ventana);
     }
 
+    SDL_FreeSurface(texto);
+
+    texto = NULL;
+
+    for(i=0;i<10;i++)
+    {
+        SDL_FreeSurface(cantidad[i]);
+        cantidad[i]=NULL;
+    }
 
 
 }
@@ -197,6 +218,16 @@ void apostardado(SDL_Surface *windowSurface, SDL_Rect locapdado,SDL_Rect loctext
         SDL_UpdateWindowSurface(ventana);
     }
 
+    SDL_FreeSurface(texto);
+    texto = NULL;
+
+
+    for(i=0;i<5;i++)
+    {
+        SDL_FreeSurface(dado[i]);
+        dado[i] = NULL;
+    }
+
 
 }
 
@@ -226,6 +257,11 @@ void aposmenti(SDL_Surface *windowSurface, SDL_Rect locapostar, SDL_Rect locment
 
 
     SDL_UpdateWindowSurface(ventana);
+
+    SDL_FreeSurface(texto1);
+    texto1=NULL;
+    SDL_FreeSurface(texto2);
+    texto2=NULL;
 }
 
 //Dos funciones que muestran el fondo de victoria o derrota tras termianar el juego.
@@ -249,6 +285,10 @@ void victoria(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana
     SDL_BlitSurface(salir,NULL,windowSurface,&locsalir);
     SDL_UpdateWindowSurface(ventana);
 
+    SDL_FreeSurface(salir);
+    salir = NULL;
+
+
 }
 
 
@@ -269,6 +309,9 @@ void derrota(SDL_Surface *fondo, SDL_Surface *windowSurface,SDL_Window *ventana)
     SDL_UpdateWindowSurface(ventana);
     SDL_BlitSurface(salir,NULL,windowSurface,&locsalir);
     SDL_UpdateWindowSurface(ventana);
+
+    SDL_FreeSurface(salir);
+    salir = NULL;
 
 }
 
@@ -329,6 +372,12 @@ void dadosia(SDL_Surface *windowSurface,int dados_jugador2[], SDL_Surface *Dadoi
         SDL_UpdateWindowSurface(ventana);
     }
 
+    for(i=0;i<5;i++)
+    {
+        SDL_FreeSurface(Dadoia[i]);
+        Dadoia[i] = NULL;
+    }
+
 
 }
 
@@ -378,6 +427,12 @@ void apostaria(SDL_Surface *windowSurface,int cantidad_apostada, int num_dado_ap
 
     }
 
+    SDL_FreeSurface(dadoapuesta);
+    dadoapuesta = NULL;
+
+    SDL_FreeSurface(texto);
+    texto = NULL;
+
 }
 
 //Muestra los dados del jugador en el apartado del historial
@@ -425,6 +480,9 @@ int histodados(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_apo
 
     }
 
+    SDL_FreeSurface(dadoapuesta);
+    dadoapuesta = NULL;
+
  return lochistodado.y;
 }
 
@@ -471,6 +529,9 @@ int histodadosia(SDL_Surface *windowSurface,int cantidad_apostada,int num_dado_a
         SDL_Delay(400);
 
     }
+
+    SDL_FreeSurface(dadoapuesta);
+    dadoapuesta = NULL;
 
     return lochistodadoia.y;
 }
