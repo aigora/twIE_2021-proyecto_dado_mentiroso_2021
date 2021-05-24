@@ -1,4 +1,3 @@
-/**<
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
@@ -20,7 +19,7 @@ int main(int argc, char* argv[]) {
 
     // Comprobamos la creación de la ventana
     if (window == NULL) {
-        // En el caso de no pode crearse esta muestra un mensaje de error
+        // En el caso de no poder crearse esta muestra un mensaje de error
         printf("No se puedo crear la ventana: %s\n", SDL_GetError());
         return 1;
     }
@@ -36,5 +35,3 @@ int main(int argc, char* argv[]) {
     SDL_Quit();
     return 0;
 }
-
- */

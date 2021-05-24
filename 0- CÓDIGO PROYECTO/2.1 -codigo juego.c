@@ -668,11 +668,20 @@ int JUGADORIA()
 
     }while(aux == 0);
 
+    for(i=0;i<5;i++)
+    {
+    SDL_FreeSurface (Dado[i]);
+    SDL_FreeSurface (Dadoia[i]);
+    }
 
+    SDL_FreeSurface (fondo);
+    SDL_FreeSurface (windowSurface);
 
+    fondo = NULL;
+    windowSurface = NULL;
 
     SDL_DestroyWindow(ventana);
-    SDL_QUIT;
+    SDL_Quit();
 
     return t;
 }
