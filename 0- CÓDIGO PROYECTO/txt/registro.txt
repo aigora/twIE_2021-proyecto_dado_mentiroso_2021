@@ -9,3 +9,7 @@ carlos ---> 5
 pedro ---> 1
 
 Antonio ---> 8
+
+Casco ---> 2
+
+Christian ---> 1

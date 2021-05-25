@@ -12,23 +12,23 @@
 int JUGADORIA()
 {
     //Variables del funcionamiento del juego
-    int i,j;
-    int dados_jugador1[5];
-    int dados_jugador2[5];
-    int contador_dados_IA[6] = {0};
-    int num_dado_apostado = 0;
-    int cantidad_apostada = 0;
+    int i;
+    int dados_jugador1[5];//dados del usuario
+    int dados_jugador2[5];//dados del ordenador
+    int contador_dados_IA[6] = {0};//vector usado para almacenar la cantidad de cada número de dado que le ha tocado a la IA.
+    int num_dado_apostado = 0;//variable auxiliar para almacenar el número del dado que fue apostado en la última jugada, ya sea del usuario o del ordenador
+    int cantidad_apostada = 0;//variable auxiliar para almacenar la cantidad de dados que fue apostada en la última jugada.
     int cantidad_de_la_IA_del_dadoapostado; //si yo, usuario, he apostado un 5, la maquina utiliza esta variable para saber cuantos 5 tiene
     float Prop_exito = 1.0/6.0;
     float Prop_fracaso = 5.0/6.0;
     float Binomial = 0;
-    int c, k;
+    int c;
     int n = 5;
-    int x = 1;
-    float vector[12];
+    int x = 1;//variable auxiliar que impide al usuario apostar por una cantidad menor que la anterior.
+    float vector[12];//En este vector se almacenan el cálculo de las probabilidades de las posibles acciones que hará la IA
     int h=3;
     char letra = 'c';
-    int t = 0, aux = 0;
+    int t = 0, aux = 0;//aux: Variable que determinará cuando se termina el bucle de apuestas
     int comprobador = 0;
 
     //Variables relacionadas con el ratón/cursor
@@ -93,6 +93,7 @@ int JUGADORIA()
 
 
     //Genera semilla aleatoria
+    //Utilizando la función randomizer se le otorga al usuario y al ordenador 5 dados aleatorios.
     srand(time(NULL));
 
     for(i = 0; i < 5; i++)
@@ -149,7 +150,7 @@ int JUGADORIA()
         printf("\n");
         Binomial = 0;
         if(t != 0){
-        printf("Escribe una M para llamar mentiroso o C para seguir apostando.\n");
+        printf("Escribe una M para llamar mentiroso o C para seguir apostando.\n");//no presentará esta linea en el primer turno pero si en los demás.
         aposmenti(windowSurface,locapostar,locmentiroso,ventana);
 
         while(on)
@@ -361,7 +362,7 @@ int JUGADORIA()
                 n = 10;
             }
 
-            for (i = c; i < n; i++)
+            for (i = c; i < n; i++)//Calcula la probabilidad medainte una distribución binomial y en función de su resultado, se aceptará o no la apuesta
             {
                 Binomial += Prop_binomial(Prop_exito, Prop_fracaso, i, n);
             }
@@ -466,6 +467,7 @@ int JUGADORIA()
                 t += 1;
                 x = cantidad_apostada;
 
+                //Aquí se calculan todas las acciones posibles que puede realizar la IA una vez ha aceptado la apuesta
                 vector[0] = Prop_binomial(Prop_exito, Prop_fracaso, cantidad_apostada - contador_dados_IA[0], n);
                 vector[1] = Prop_binomial(Prop_exito, Prop_fracaso, cantidad_apostada - contador_dados_IA[0] + 1, n);
                 vector[2] = Prop_binomial(Prop_exito, Prop_fracaso, cantidad_apostada - contador_dados_IA[1], n);
@@ -577,6 +579,7 @@ int JUGADORIA()
 
             mentiroso(fondo,windowSurface,ventana,h);
 
+            //Con estos dos bucles se contabiliza la cantidad de dados que hay del número apostado por el último jugador en haber jugado.
             for(i = 0; i < n; i++)
             {
                 if(num_dado_apostado == dados_jugador1[i])
@@ -589,6 +592,8 @@ int JUGADORIA()
             }
 
 
+            //Aqui se comprueba si la cantidad real de dados del número apostado es
+            //menor de la cantidad que el último jugador apostó.
             if(comprobador < cantidad_apostada)
             {
                 printf("Tuviste razon!!\n");
