@@ -34,9 +34,6 @@ int JUGADORIA()
     //Variables relacionadas con el ratón/cursor
         _Bool on = 1;  //Para alternar entre activa o desactiva la cola de eventos de SDL
         int rx,ry;     //posiciones x e y del ratón
-        Uint32 inicio;
-
-
 
 
     //Variables parte gráfica
@@ -156,7 +153,6 @@ int JUGADORIA()
         while(on)
         {
             SDL_UpdateWindowSurface(ventana);
-            inicio = SDL_GetTicks(); //Se inicializa la funcion GetTicks
             while(SDL_PollEvent(&windowEvent)) //Cola de eventos de SDL (Almacena los eventos como es el caso de los clicks)
             {
                 switch(windowEvent.type)
@@ -203,7 +199,7 @@ int JUGADORIA()
         while(on)
             {
                 SDL_UpdateWindowSurface(ventana);//Actualiza la ventana gráfica
-                inicio = SDL_GetTicks();//Mismo procedimiento de la linea 158
+
                 while(SDL_PollEvent(&windowEvent))
                 {
                     switch(windowEvent.type)
@@ -285,7 +281,7 @@ int JUGADORIA()
         while(on)
             {
                 SDL_UpdateWindowSurface(ventana);
-                inicio = SDL_GetTicks();
+
                 while(SDL_PollEvent(&windowEvent))
                 {
                     switch(windowEvent.type)
@@ -403,7 +399,7 @@ int JUGADORIA()
                     while(on)
                 {
                     SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
+
                     while(SDL_PollEvent(&windowEvent))
                     {
                         switch(windowEvent.type)
@@ -437,7 +433,7 @@ int JUGADORIA()
                     while(on)
                 {
                     SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
+
                     while(SDL_PollEvent(&windowEvent))
                     {
                         switch(windowEvent.type)
@@ -607,7 +603,7 @@ int JUGADORIA()
                 while(on)
                 {
                     SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
+
                     while(SDL_PollEvent(&windowEvent))
                     {
                         switch(windowEvent.type)
@@ -643,7 +639,7 @@ int JUGADORIA()
                 while(on)
                 {
                     SDL_UpdateWindowSurface(ventana);
-                    inicio = SDL_GetTicks();
+
                     while(SDL_PollEvent(&windowEvent))
                     {
                         switch(windowEvent.type)
