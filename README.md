@@ -16,5 +16,5 @@ Realizaremos un código con el cual una persona jugará con una IA al juego del 
  
  2-Realizar una especie de "Ranking" almacenando las puntuaciones de los jugadores.
  
- 3-Pasar a retocar y decorar de forma más visual el juego una vez haber hecho funcionar el código. (Esto se realizara si disponemos de tiempo)
+ 3-Pasar a retocar y decorar de forma más visual el juego una vez haber hecho funcionar el código.
  
